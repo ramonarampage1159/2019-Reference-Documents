@@ -1,0 +1,22 @@
+/*
+* --------------------------------------------------------------------------------------------------------------------------------------
+* Modification History:
+* Date              Author              Modifications
+* 16-APR-2018       Irene Zuniga        Creating file in order to remove inline styles. 
+* 16-APR-2018       Irene Zuniga        Fixing issue in DSP-1503. 
+* --------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+.box {
+	padding: 5px;
+	border: 1px solid;
+}
+
+.box:last-child {
+	padding: 5px;
+}
+
+pre{
+	word-break: normal !important;
+	white-space: pre-wrap !important;
+}

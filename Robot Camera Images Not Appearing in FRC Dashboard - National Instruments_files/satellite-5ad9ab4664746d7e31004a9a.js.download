@@ -1,0 +1,15 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  if (typeof digitalData == "undefined") {
+  digitalData = { };
+}
+if (typeof NIUA !== "undefined") {
+  var myNIUA = NIUA.getNIUA({"minutesBeforeExpire": 2, "apikey":"cd9a922c-dc20-436d-a09a-c7143406edfc"});
+  myNIUA.ready().then(function(){
+    myNIUA.getEmail().then(function(data){
+      if (data.response.success) digitalData.email = data.response.email;
+    }, function(error){
+      console.log("Error while processing email.");
+    });
+  });
+}
+});

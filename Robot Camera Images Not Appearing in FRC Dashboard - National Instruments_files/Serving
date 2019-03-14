@@ -1,0 +1,1 @@
+bsResponseObj=window.bsResponseObj||{};bsResponseObj["ot4042-5050594283222287968"]={uipv:"_1_18_0_0",sessionId:"5050594283222287968",scriptsPath:"https://secure-ds.serving-sys.com/BurstingCachedScripts/",sync:!1,preServingTasks:[],scripts:[],urls:[]};if(!1){var oneTagObj=new EBGVT.OneTag();oneTagObj._handleResponse();}

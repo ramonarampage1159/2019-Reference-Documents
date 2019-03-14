@@ -1,0 +1,19 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  if (localStorage.getItem('sdsat_stagingLibrary') == "true"){
+  var script = document.createElement('script');
+  script.src = 'https://www-dev.ni.com/niassets/js/ni-survey.js';
+  document.head.appendChild(script);
+} else {
+  var script = document.createElement('script'); 
+  var tier = "";
+  var tag = document.domain.split(".")[0];
+  switch (true){
+    case tag.indexOf("-test2") > -1 : tier = "-test2"; break;
+    case tag.indexOf("-test") > -1 : tier = "-test"; break;
+    case tag.indexOf("-dev2") > -1 : tier = "-dev2"; break;
+    case tag.indexOf("-dev") > -1 : tier = "-dev"; break;
+  }
+  script.src = 'https://www'+tier+'.ni.com/niassets/js/ni-survey.js';
+  document.head.appendChild(script);
+}
+});

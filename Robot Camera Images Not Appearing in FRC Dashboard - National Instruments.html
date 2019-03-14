@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&l=en-US -->
+<html class="gr__knowledge_ni_com ext-strict"><script>var digitalData = {page: {pageinfo: {template: 'kbArticle'}}};</script><head class="at-element-marker"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--DNS prefetching-->
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com/">
+<link rel="dns-prefetch" href="https://assets.adobedtm.com/">
+<link rel="dns-prefetch" href="https://dpm.demdex.net/">
+<link rel="dns-prefetch" href="https://ds.serving-sys.com/">
+<link rel="dns-prefetch" href="https://bs.serving-sys.com/">
+<link rel="dns-prefetch" href="https://nsmetrics.ni.com/">
+<link rel="dns-prefetch" href="https://cdn.tt.omtrdc.net/">
+<link rel="dns-prefetch" href="https://ni.tt.omtrdc.net/">
+<link rel="dns-prefetch" href="https://s7d5.scene7.com/">
+            
+<!--DTM call-->
+<!-- removing because it doesn't load in time @dtm_header -->
+   <!--SAAS WRAPPER NIA  RESPONSIVE -->
+
+        <meta name="Wrapper" content="yes">
+       
+          
+        <link rel="stylesheet" type="text/css" href="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/jquery-ui.css"> 
+        <link rel="stylesheet" type="text/css" href="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/jqueryui.autocomplete.css">
+<script type="text/javascript" async="async" src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/ActivityServer.bs"></script>
+<script src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/stub.js.download" type="text/javascript"></script><script src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/VFRemote.js.download" type="text/javascript"></script><script src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/SfdcCore.js.download" type="text/javascript"></script><script src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/picklist4.js.download" type="text/javascript"></script><script src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/VFState.js.download" type="text/javascript"></script><script src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/NetworkTracking.js.download" type="text/javascript"></script><script>try{ NetworkTracking.init('/_ui/networks/tracking/NetworkTrackingServlet', 'network', '0660Z000004V9fC'); }catch(x){}try{ NetworkTracking.logPageView();}catch(x){}</script><script>(function(UITheme) {
+    UITheme.getUITheme = function() { 
+        return UserContext.uiTheme;
+    };
+}(window.UITheme = window.UITheme || {}));</script><script type="text/javascript">
+Visualforce.remoting.Manager.add(new $VFRM.RemotingProviderImpl({"vf":{"vid":"0660Z000004V9fC","xhr":false,"dev":false,"tst":false,"dbg":false,"tm":1552011338817,"ovrprm":false},"actions":{"KnowledgeArticleDetailCntrl":{"ms":[{"name":"addHelpfulVote","len":4,"ns":"","ver":40.0,"csrf":"VmpFPSxNakF4T1Mwd015MHhNVlF3TWpveE5Ub3pPQzQ0TVRkYSxvbk9TWmVDWnIzbkMzQVhRVS0yZnIwLE5XWXlaVEZq"}],"prm":0}},"service":"apexremote"}));
+</script><script>(function(UITheme) {
+    UITheme.getUITheme = function() { 
+        return UserContext.uiTheme;
+    };
+}(window.UITheme = window.UITheme || {}));</script><meta http-equiv="PRAGMA" content="NO-CACHE">
+<meta http-equiv="Expires" content="Mon, 01 Jan 1990 12:00:00 GMT">
+
+            
+            <title>Robot Camera Images Not Appearing in FRC Dashboard - National Instruments</title>
+            
+            <meta content="yes" name="Yahooooo">
+            
+            <meta content="yes" name="Wrapper">
+            <meta content="width=device-width, initial-scale=1" name="viewport">
+            <meta content="leaf" name="PageType" scheme="">
+            <meta content="support" name="Section" scheme="">
+            <meta content="sc-kb" name="deliveredby" scheme="">
+            <meta content="knowledgebase" name="ContentType" scheme="">
+            <meta content="0" name="helpful" scheme="">
+            <meta content="125771,291393" name="Productcategories" scheme="">
+            <meta content="" name="nigen2" scheme="">
+            <meta content="current" name="DocStatus" scheme="">
+            <meta content="0" name="nothelpful" scheme="">
+            <meta content="" name="nigen3" scheme="">
+            <meta content="I&#39;m working with a camera on my FIRST Robotics Competition robot, but I&#39;m not seeing any images coming from my roboRIO to my dashboard. What troubleshooting steps should I try?" name="Description" scheme="">
+            <meta content="2019-02-18T20:34:28" name="Date" scheme="">
+            <meta content="camera, frc, first, robotics, vision, image, webcam, LifeCam, HD-3000, roboRIO, robot" name="keywords" scheme="">
+            <meta content="" name="nigen1" scheme="">
+            <meta content="kA00Z000001DcmwSAC" name="DocumentID" scheme="">
+            <meta content="" name="ArchivedDate" scheme="">
+            <meta content="2019-03-07T19:21:48" name="UpdateDate" scheme="">
+            <meta content="Robot Camera Images Not Appearing in FRC Dashboard" name="ShortTitle" scheme="">
+            <meta content="000040549" name="DocumentCoreID" scheme="">
+            <meta content="UD:2019-03-07T19:21:48" name="NIBoosts" scheme="">
+            <meta content="Robot Camera Images Not Appearing in FRC Dashboard" name="EnglishShortTitle" scheme="">
+            <meta content="en" name="Language" scheme="rfc3066">
+            
+            <link href="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/CommunityTemplateCSS" rel="stylesheet" type="text/css">
+            <link href="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/font-awesome.min.css" rel="stylesheet">
+            <link href="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/KnowledgeArticleDetailsCSS" rel="stylesheet" type="text/css">
+            <link href="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/bootstrap.min.css" rel="stylesheet">
+            <link href="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/jquery-ui.min.css" rel="stylesheet" type="text/css">
+            <link href="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/ni.min.css" rel="stylesheet" type="text/css">
+            <link href="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/ni.min.css" rel="stylesheet" type="text/css">
+            
+            <script src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/satelliteLib-1401ce0fc9dae9e8602fcc34896d0a249c42abb2.js.download" type="text/javascript"></script><script src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/mbox-contents-9016c8547b1ac2c743f4fef6982b2f26bb9f06dd.js.download"></script><script src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/satellite-59fca2ee64746d07fa0013b0.js.download"></script><script src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/satellite-5ad9ab4664746d7e31004a9a.js.download"></script><script src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/satellite-57067e0064746d2108001842.js.download"></script><script src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/ni-survey.js.download"></script><style id="at-makers-style" class="at-flicker-control">
+.mboxDefault {visibility:hidden;}
+</style>
+            <script src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/jquery.min.js.download" type="text/javascript"></script>
+            <script src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/jquery-migrate-1.2.1.min.js.download" type="text/javascript"></script>
+            <script src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/bootstrap.min.js.download" type="text/javascript"></script>
+            <script src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/jquery-ui.min.js.download" type="text/javascript"></script>
+            <script src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/ni.min.js.download" type="text/javascript"></script><style type="text/css"></style>
+            <script src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/KnowledgeArticleDetailsJS"></script>
+            <script>
+                
+                function getRemoteAccount(isHelpFul, e) {
+                
+                var currentLanguage = getUrlVariable('l');
+                if(!(currentLanguage)){
+                    currentLanguage = '';
+                }
+                var currentArticleId = getUrlVariable('id');     
+                var localStorageKey = currentArticleId + currentLanguage;
+                var articleStoredValue = window.localStorage.getItem(localStorageKey);
+                var storedArticle = JSON.parse(articleStoredValue);            
+                var uniqueSessionId = storedArticle.uniqueSessionId;
+                
+                if(isHelpFul.toString() != storedArticle.voteValue){
+                    
+                    var isHelpFulBoolean;
+                    if(isHelpFul == "helpful"){
+                        isHelpFulBoolean = true;
+                    } else if(isHelpFul == "notHelpful"){
+                        isHelpFulBoolean = false;
+                    }
+                    Visualforce.remoting.Manager.invokeAction(
+                        'KnowledgeArticleDetailCntrl.addHelpfulVote', 
+                        currentArticleId,
+                        isHelpFulBoolean,
+                        uniqueSessionId,
+                        currentLanguage,
+                        function(result, event){
+                            var resultJSON = JSON.parse(result);
+                            if(resultJSON.status == "success"){
+                                
+                                if(storedArticle.voteValue != ' '){
+                                    
+                                    $(".firstTimeVote").addClass("hidden");
+                                    $(".changeVoteText").removeClass("hidden");
+                                    
+                                    if(storedArticle.voteValue == 'helpful'){
+                                        $("div .like .iconBox").removeClass("selected");
+                                        $("div .dislike .iconBox").addClass("selected");
+                                        $(".changeVoteText #messageNotHelpful").addClass("hidden");
+                                        $(".changeVoteText #messageHelpful").removeClass("hidden");
+                                        
+                                    } else if(storedArticle.voteValue == 'notHelpful'){
+                                        $("div .like .iconBox").addClass("selected");
+                                        $("div .dislike .iconBox").removeClass("selected");
+                                        $(".changeVoteText #messageNotHelpful").removeClass("hidden");
+                                        $(".changeVoteText #messageHelpful").addClass("hidden");
+                                    }
+                                } else{
+                                    e.classList.toggle("selected");
+                                    $(".firstTimeVote").removeClass("hidden");
+                                }
+                                
+                                //Update value of the local storage entry with the new vote
+                                storedArticle.voteValue = isHelpFul;
+                                updateLocalStorageValue(localStorageKey, JSON.stringify(storedArticle));
+                            }                    
+                        }, 
+                        {
+                            escape: false
+                        }
+                    );
+                } 
+            }
+            $( document ).ready(function() {
+
+                var activeLanguages = '[zh-CN, zh-TW, ja-JP, en-US, ko-KR, es-ES]';
+                var currentArticleId = getUrlVariable('id');
+                var currentLanguage = getUrlVariable('l');            
+                var currentArticleVersionNumber = 'ka00Z0000011N55QAE';
+
+                if(!(activeLanguages.includes(currentLanguage))){
+                    currentLanguage = '';
+                }
+                
+                var localStorageKey = currentArticleId + currentLanguage;
+                var articleStoredValue = window.localStorage.getItem(localStorageKey);
+                
+                if(articleStoredValue == null){
+                    //If local storage entry does not exist create a new one
+                    storeArticleMetadata(localStorageKey, currentArticleVersionNumber);
+                }
+                else{
+                    
+                    var storedArticle = JSON.parse(articleStoredValue);
+                    var knowledgeArticleVersionId = storedArticle.articleVersionId;
+                    
+                    if(knowledgeArticleVersionId != currentArticleVersionNumber){
+                        //If the version Id has changed, wipe the local storage entry and start again
+                        storeArticleMetadata(localStorageKey, currentArticleVersionNumber);
+                    } else{
+                        
+                        //If local storage entry exists and has a value for the vote, show the classes in the buttons
+                        if(storedArticle.voteValue != ''){
+                            if(storedArticle.voteValue == 'helpful'){
+                                $("div .like .iconBox").addClass("selected");
+                            }
+                            else if(storedArticle.voteValue == 'notHelpful'){
+                                $("div .dislike .iconBox").addClass("selected");
+                            }
+                        }
+                    }
+                }
+                $('html').first().prepend("<script>var digitalData = {page: {pageinfo: {template: 'kbArticle'}}};<\/script>");
+            });  
+            
+            </script>
+            <script type="text/javascript">
+            $(function() {
+                var cookie = PNX.utils.Cookie,
+                    wrapperName = 'kb',
+                    apiKey = 'efc0baee-b8e0-45ed-89bb-60966defe815',
+                    locale = cookie.get("locale");
+                var myCallback = function(args) {}
+                
+                var injectWrapper = function(data) {
+                    $invisibleHeader = data[locale][
+                        'invisibleHeader'
+                    ],
+                        $visibleHeader = data[locale][
+                        'visibleHeader'
+                    ],
+                        $visibleFooter = data[locale][
+                        'visibleFooter'
+                    ];
+                    //$invisibleFooter = data[locale]['invisibleFooter']; -- removed because it only contains DTM code and does't work as it loads too late
+                    
+                    $('head').prepend($invisibleHeader);
+                    
+                    $.getScript(
+                        "//www.ni.com/niassets/wrapper/js/cartCount.js",
+                        function() {});
+                    $.getScript(
+                        "//www.ni.com/niassets/wrapper/js/cookielaw.js",
+                        function() {});
+                    
+                    $('#ni-vis-head').html($visibleHeader).fadeIn(600);
+                    $('#ni-vis-foot').html($visibleFooter).fadeIn(
+                        600).promise().done(function() {
+                        //$('#ni-invis-foot').html($invisibleFooter).promise().done(function(){
+                        setTimeout(function() {
+                            $(document).trigger(
+                                "navBar");
+                            $(document).trigger(
+                                "globalGatewayPanel"
+                            );
+                            $(document).trigger(
+                                "myAccount");
+                            $(document).trigger(
+                                "globalSearch");
+                            $(document).trigger(
+                                "upMobileData");
+                            
+                            $(".gg-panel ul li").click(function(e) {
+                                //debugger;
+                                // If we have the attribute data-locale then we proceed to change the locale cookie
+                                // This will prevent us from triggering a false positive for other anchor tags such as "more"
+                                // if ($(this).attr("data-locale"))
+                                //changed this to be able to activate this feature from clicking the li, rather than the a
+                                if ($(this).children("a").attr("data-locale")) {
+                                    e.preventDefault();
+                                    // Get the locale information from the anchor tag
+                                    var locale = $(this).children("a").data("locale");
+                                    
+                                    // Update the locale cookie with the new information
+                                    var localeCookieDate = new Date;
+                                    localeCookieDate.setFullYear(localeCookieDate.getFullYear() + 2);
+                                    /*
+                    PNX.utils.Cookie.set("locale", locale, {
+                        "domain": ".ni.com",
+                        "path": "/",
+                        "expires": localeCookieDate.toGMTString()
+                    });
+                    */
+                                    PNX.utils.Cookie.set("locale", locale);
+                                    
+                                    // checks to see if this is shop page other...if so, redirects to main shop page
+                                    
+                                    if ($('li.products').hasClass('current')) {
+                                        //redirect to older shop experience
+                                        location.href = "//www"  + HOST_ENVIROMENT(location.hostname) + ".ni.com/" + locale.toLowerCase() + "/shop.html"
+                                        
+                                    }
+                                    
+                                    
+                                    else {
+                                        var str = window.location.search;
+                                        str = replaceQueryParam('l', locale, str);
+                                        var loc=  window.location.pathname + str; 
+                                        if (loc.substring(loc.length-1,loc.length)=='#')
+                                        {
+                                            location.href = loc.substring(0, loc.length-1);      
+                                        }
+                                        else
+                                        {
+                                            location.href = loc;
+                                        }
+                                        
+                                        //location.reload();
+                                    }
+                                }
+                            }); 
+                        }, 800);
+                        
+                    });
+                }
+                
+                var fallback = function() {
+                    var gg = $(".global-gateway");
+                    
+                    // Add return path to the end of the GG link
+                    gg
+                    .attr("href", function(i, val) {
+                        return val + "?rtrn=" +
+                            encodeURIComponent(window.location
+                                               .href);
+                    });
+                    
+                    var year = new Date();
+                    $('.copywriteYear').html(year.getFullYear());
+                    
+                    // Show the fall back wrapper
+                    $('#ni-vis-head').find('.global-header').show();
+                }
+                
+                var getWrapper = function() {
+                    jQuery.ajax({
+                        url: "//flux.ni.com/wrapper-markup/1/wrapper/" +
+                        wrapperName + ".json?locale=" +
+                        locale + "&ni-api-key=" +
+                        apiKey,
+                        cache: true,
+                        timeout: 3000,
+                        jsonp: 'callback',
+                        jsonpCallback: 'injectWrapper',
+                        dataType: "jsonp",
+                        success: function(data) {
+                            injectWrapper(data);
+                        },
+                        error: function() {
+                            fallback();
+                        }
+                    });
+                }
+                
+                
+                //FOR GLOBAL GATEWAY ON SAAS
+                if (!locale) {
+                    
+                    locale = 'en-US';
+                    getWrapper();
+                    
+                } else {
+                    getWrapper();
+                }
+                
+            });
+            function replaceQueryParam(param, newval, search) {
+                var regex = new RegExp("([?;&])" + param + "[^&;]*[;&]?");
+                var query = search.replace(regex, "$1").replace(/&$/, '');
+                
+                return (query.length > 2 ? query + "&" : "?") + (newval ? param + "=" + newval : '');
+            }
+            
+            </script>
+            <link href="https://knowledge.ni.com/resource/1507845822000/favicon" rel="SHORTCUT ICON">
+        <script src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/satellite-5638e2de64746d755100274d.js.download"></script><script src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/satellite-58875d4764746d4e8f0011c6.js.download"></script><script src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/s-code-contents-523d44688c97ac3a65cbb90612c024fd390698b2.js.download"></script><link id="avast_os_ext_custom_font" href="chrome-extension://eofcbnmajmjmplflapaojjnihcjkigck/common/ui/fonts/fonts.css" rel="stylesheet" type="text/css"></head>
+        <body data-gr-c-s-loaded="true" class="  ext-webkit ext-chrome">
+            <div class="ni-page-wrap">
+                <div class="ni-page-wrap">
+                    
+                    <div id="ni-vis-head">  
+  
+ 
+ 
+ 
+ 
+ 
+<div class="ni-wrapper-header noindex">
+ <!--Downtime Notification-->
+    <!--#include virtual="/ssi/downtime/downtime_main_en.htm" -->
+    <!--NI#include virtual="/ssi/downtime/downtime_main_en.htm" -->
+  
+ <!--Fixed nav bar only visible in lg and medium devices-->
+   <nav class="navbar navbar-default">
+     <!--Main Navigation Content-->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="container">
+        <div class="row">
+ 
+  <div class="ni_logo col-md-5 col-xs-4">
+ <a href="https://www.ni.com/" class="navbar-brand analytics-utilitylogo-link"></a>
+    </div>
+            
+<div class="utility-nav col-md-7 pull-right">
+    <ul class="nav nav-pills pull-right">
+     <!--User Profile component-->
+<li class="hidden-xs myaccount-utility">
+<span class="pull-left user"></span>
+<span class="global-header-nav-up-wrap"><a class="analytics-utilityaccount-link" href="https://www.ni.com/myni"><strong>MY ACCOUNT</strong></a> <br><span><a class="analytics-utilityaccount-link" href="https://lumen.ni.com/nicif/us/header_login/content.xhtml?action=login&amp;du=https%3A%2F%2Fknowledge.ni.com%2FKnowledgeArticleDetails%3Fid%3DkA00Z000001DcmwSAC%26l%3Den-US">Log in</a></span></span>
+</li>       
+     <!--Shopping Cart component-->
+ 
+     <li class="cart cart-badge analytics-utilitycart-link" data-badge="0"><a href="https://sine.ni.com/apps/utf8/nios.store?action=view_cart&amp;loc=en-US">&nbsp;</a></li>
+ 
+ 
+     <!--Search Button-->
+<li class="visible-xs search search-box" role="button" data-toggle="modal" data-target="#wrapperSearchModal">
+   <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewBox="0 0 800 600" enable-background="new 0 0 800 600" xml:space="preserve">
+   <g id="XMLID_1_">
+   <g>
+   <path fill="#FFFFFF" d="M637.27,499.09l-38.18,38.18L413.64,351.82c-27.28,19.09-60,30-95.459,30    c-90,0-163.63-73.641-163.63-163.64c0-90,73.63-163.63,163.63-163.63c90,0,163.64,73.63,163.64,163.63    c0,35.46-10.91,68.18-30,95.459L637.27,499.09z M454.55,218.18c0-76.36-60-136.36-136.37-136.36c-76.36,0-136.36,60-136.36,136.36    c0,76.37,60,136.37,136.36,136.37C394.55,354.55,454.55,294.55,454.55,218.18z"></path>
+   </g>
+   </g>
+   </svg>
+</li>
+     <!--Nav Toggle Button-->
+ <!--Navbar toggle box component/button-->
+  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+     <span class="sr-only">Toggle navigation</span>
+     <span class="icon-bar"></span>
+     <span class="icon-bar"></span>
+     <span class="icon-bar"></span>
+  </button>
+    </ul>
+</div>
+      </div>
+    </div>
+  </div> 
+  <div class="row">
+    <div class="container">
+      <div class="row">
+ 
+ <div class="ni-nav col-md-8 col-sm-9 pull-left col-xs-12">
+     <div id="navbar" class="navbar-collapse collapse">
+ <ul class="nav navbar-nav">
+    <li class="innovations " lang="en-US">
+ 
+   <a class="analytics-header-link" href="https://www.ni.com/innovations/">INNOVATIONS</a>
+         </li>
+    <li class="products " lang="en-US">
+ 
+   <a class="analytics-header-link" href="https://www.ni.com/shop/">PRODUCTS</a>
+         </li>
+    <li class="support  current" lang="en-US">
+ 
+   <a class="analytics-header-link" href="https://www.ni.com/en-us/support.html">SUPPORT</a>
+         </li>
+    <li class="community " lang="en-US">
+ 
+   <a class="analytics-header-link" href="https://www.ni.com/en-us/community.html">COMMUNITY</a>
+         </li>
+<li class="nav-myaccount visible-xs" lang="en-US">
+    <span class="pull-left user"></span>
+<div class="mobile-nav-up-wrap">
+               <a class="analytics-utilityaccount-link" href="http://www.ni.com/myni/">My Account</a>
+               <br>
+              <span>
+               <a class="analytics-utilityaccount-link" href="http://www.ni.com/myni/">Log in</a>
+               </span>
+               </div>
+          
+</li>
+ </ul>
+  <div class="hidden-xs" id="navSlider" style="left: 309.531px; width: 92px; display: block;">&nbsp;</div>
+     </div>
+        
+     <!--/.nav-collapse -->
+ </div>
+                                                
+  <div class="col-md-4 col-sm-3 pull-right col-xs-4 global-header-search">
+<div class="hidden-xs pull-right">
+<form id="autoComplete-global" name="autoComplete-global" type="GET" action="https://search.ni.com/nisearch/app/main">
+<div class="autoCompleteItem-global">
+<div class="input-group stylish-input-group">
+<!--     <input type="text" placeholder="" class="form-control">-->
+<input placeholder="" class="niAutocompleteInput pull-right ui-autocomplete-input" data-search-type="globalSearch" type="text" id="n33_autoCompleteInput" name="q" lang="en-US" autocomplete="off">
+<input type="hidden" name="pg" id="pg" value="1" lang="en-US">
+<input type="hidden" name="sn" id="sn" value="" lang="en-US">
+<span class="input-group-addon">
+   <button type="submit">
+      <span class="search search-icon">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="35px" height="35px" viewBox="0 0 800 600" enable-background="new 0 0 800 600" xml:space="preserve">
+ <g id="XMLID_1_">
+ <g>
+ <path fill="#065FA3" d="M637.27,499.09l-38.18,38.18L413.64,351.82c-27.28,19.09-60,30-95.459,30    c-90,0-163.63-73.641-163.63-163.64c0-90,73.63-163.63,163.63-163.63c90,0,163.64,73.63,163.64,163.63    c0,35.46-10.91,68.18-30,95.459L637.27,499.09z M454.55,218.18c0-76.36-60-136.36-136.37-136.36c-76.36,0-136.36,60-136.36,136.36    c0,76.37,60,136.37,136.36,136.37C394.55,354.55,454.55,294.55,454.55,218.18z"></path>
+ </g>
+ </g>
+</svg>
+  </span>
+   </button>  
+</span>
+<ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0" style="display: none;"></ul></div>
+</div>
+</form>
+</div>
+</div>
+            
+      </div>
+    </div>
+  </div>
+  
+</div>
+    </nav>
+</div>
+            <div class="container global-header-breadcrumb">
+                
+            </div>
+</div>
+            <div aria-label="Breadcrumbs" class="breadcrumb" role="navigation">
+                <div class="ni-body-copy-secondary container">
+                            <a class="left" href="https://www.ni.com/">Home</a>
+                            <span class="delimiter"></span>
+                            <a class="left" href="https://www.ni.com/support">Support</a>
+                            <span class="delimiter"></span>
+                            <span class="left breadcrumb-last">Robot Camera Images Not Appearing in FRC Dashboard</span>
+                </div>
+            </div>
+                    
+                    
+                    
+                    <div style="overflow-x: hidden;">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+<form id="j_id0:j_id1:j_id24" name="j_id0:j_id1:j_id24" method="post" action="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="j_id0:j_id1:j_id24" value="j_id0:j_id1:j_id24">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            
+                            <div class="blog-header">
+                                
+                                <h1 class="blog-title">Robot Camera Images Not Appearing in FRC Dashboard</h1>
+                                <div class="blog-description lead"><span class="lastModifiedDate">Updated  Mar 7,  2019</span>
+                                    
+                                </div>
+                                
+                                <div class="blog-icons">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <div class="icon" onclick="location.href=&#39;mailto:user@example.com?subject=&#39;+document.title+&#39;&amp;body=&#39;+window.location.href;">
+                                            	<i class="fa fa-envelope"></i>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon" onclick="window.print();">
+                                            	<i class="fa fa-print"></i>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                                <div class="blog-reported">
+                                    <h2>Reported In</h2>
+                                    <div class="blog-reported-popover" data-trigger="manual" data-original-title="" title="">
+                                        <div class="dot"></div><svg data-name="Layer 1" id="Layer_1" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+                                            <defs>
+                                                <style>
+                                                    .cls-1 {
+                                                    fill: #aaa;
+                                                    fill-rule: evenodd;
+                                                    }
+                                                </style>
+                                            </defs>
+                                            <path class="cls-1" d="M64,0a64,64,0,1,0,64,64A64,64,0,0,0,64,0ZM75.61,93.41q-4.36,1.69-7,2.57a18.73,18.73,0,0,1-6,.89c-3.52,0-6.26-.84-8.22-2.53a8.09,8.09,0,0,1-2.93-6.41,21,21,0,0,1,.22-3.09,34.68,34.68,0,0,1,.71-3.56L56,68.65q.5-1.82.83-3.44a15,15,0,0,0,.33-3,4.5,4.5,0,0,0-1-3.37c-.68-.63-2-.95-3.89-.95a10.31,10.31,0,0,0-2.9.43c-1,.29-1.83.56-2.54.82l1-3.89c2.39-.95,4.66-1.76,6.84-2.44a20.91,20.91,0,0,1,6.18-1c3.5,0,6.2.83,8.09,2.48a8.17,8.17,0,0,1,2.84,6.46c0,.55-.06,1.51-.19,2.89a19.92,19.92,0,0,1-.72,3.8L67.21,80.06c-.29,1-.55,2.16-.79,3.46a17.73,17.73,0,0,0-.36,2.94c0,1.67.38,2.81,1.15,3.41a6.52,6.52,0,0,0,4,.91,11.57,11.57,0,0,0,3-.45,16.72,16.72,0,0,0,2.42-.8ZM75,42.36a8.74,8.74,0,0,1-6.1,2.31,8.83,8.83,0,0,1-6.13-2.31,7.42,7.42,0,0,1,0-11.21,8.79,8.79,0,0,1,6.13-2.33A8.69,8.69,0,0,1,75,31.15a7.45,7.45,0,0,1,0,11.21Z"></path>
+                                            <script>
+                                            </script>
+                                        </svg></div>
+                                    <div class="popover-content hidden">
+                                        <div class="popover-body">Reported In shows products that are verified to work for the solution described in this article. This solution might also apply to other similar products or applications.</div>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="blog-reported-data">
+                                    <div class="row">
+                                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                                <h3>Hardware</h3>
+                                                <ul>
+                                                        <li>roboRIO-FRC</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                                <h3>Software</h3>
+                                                <ul>
+                                                        <li>FRC 2019 Software</li>
+                                                </ul>
+                                            </div>
+                                    </div>
+                                    <div class="row">
+                                    </div>
+                                    
+                                    <div class="row">
+                                    </div>
+                                </div><span id="j_id0:j_id1:j_id24:j_id60:0:j_id61">
+                                    <div class="blog-post">
+                                        <h2>Issue Details</h2>I'm working with a camera on my <i>FIRST </i>Robotics Competition robot, but I'm not seeing any images coming from my roboRIO to my dashboard. What troubleshooting steps should I try?
+                                    </div></span><span id="j_id0:j_id1:j_id24:j_id60:1:j_id61">
+                                    <div class="blog-post">
+                                        <h2>Solution</h2>There are many potential causes for webcam difficulty, but the following steps will help narrow down where the issue is happening and resolve the most common cases:<br>&nbsp;&nbsp;
+<ol><li>Make sure you have the most recent version of the <a href="https://forums.ni.com/t5/FIRST-Robotics-Competition/FRC-2019-Update-Suite/ta-p/3861427" target="_blank">NI Update Suite</a> installed on all your computers (your&nbsp;development machine(s),&nbsp;as well as the computer you use&nbsp;during matches).</li><li>Use the newest version of the Dashboard.
+	<ol start="1" style="list-style-type: upper-alpha;"><li>If you're using the default Dashboard:
+		<ol start="1" style="list-style-type: lower-alpha;"><li>Run the&nbsp;2019.2.1 dashboard, which is attached to this document. It&nbsp;includes a longer timeout for camera connections to the field.</li></ol>
+		</li><li>If you are using a custom LabVIEW Dashboard:
+		<ol start="1" style="list-style-type: lower-alpha;"><li>Close all applications.</li><li>Unzip the file attached to this document&nbsp;and copy the <span style="font-family: courier new,courier,monospace;">vi.lib</span> folder over the <span style="font-family: courier new,courier,monospace;">C:\Program Files (x86)\National Instruments\LabVIEW 2018\vi.lib</span> folder to merge the modified functions with the rest of the LabVIEW's <span style="font-family: courier new,courier,monospace;">vi.lib</span> functions.</li><li>Open your Dashboard project in LabVIEW to reload the updated VIs.</li><li>To add a way to check the robot's IP, use the path <span style="font-family: courier new,courier,monospace;">C:\Program Files (x86)\National Instruments\LabVIEW 2018\vi.lib\Rock Robotics\WPI\Dashboard</span> to open a File Explorer window, and drag/drop the file <span style="font-family: courier new,courier,monospace;">WPI_DashboardGet Robot IP.vi</span> directly to the Dashboard Main Block Diagram. Wire the required input, called the Notification Refnum, as shown below.&nbsp;
+			<p style="text-align: center;"><img alt="" src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/rtaImage"></p>
+			</li><li>Build your dashboard from the Build Specification, and navigate to where you saved the new executable file. Copy the new <span style="font-family: courier new,courier,monospace;">Dashboard.exe</span> file over to the <span style="font-family: courier new,courier,monospace;">C:\Program Files (x86)\FRC Dashboard</span> directory, replacing the existing one.</li></ol>
+		</li></ol>
+	</li><li>Make sure the <a href="https://wpilib.screenstepslive.com/s/currentCS/m/getting_started/l/1009233-imaging-your-roborio" target="_blank">roboRIO has been imaged</a>&nbsp;with the latest update. This will resolve any issues caused by missing files. This can also help resolve <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DdKPSA0&amp;l=en-US" target="_blank">Error 7 or 1003 in the Driver Station logs</a>.
+	<p style="text-align: center;"><img alt="" src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/rtaImage(1)"></p>
+	</li><li>Check your Robot Main.vi file. It should include both of the VIs highlighted in the image below.
+	<p style="text-align: center;"><img alt="" src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/rtaImage(2)"></p>
+
+	<ol start="1" style="list-style-type: upper-alpha;"><li>Close all applications.</li><li>Unzip the file attached to this document&nbsp;and copy the <span style="font-family: courier new,courier,monospace;">vi.lib</span> folder over the <span style="font-family: courier new,courier,monospace;">C:\Program Files (x86)\National Instruments\LabVIEW 2018\vi.lib</span> folder to merge the modified functions with the rest of the LabVIEW's <span style="font-family: courier new,courier,monospace;">vi.lib</span> functions.</li><li>No other code is needed to send the images from a USB camera to the Dashboard with LabVIEW.</li><li>To verify whether coding mistakes may be part of the issue, make sure you're testing with a default dashboard and a default robot project to rule out any potential programming errors affecting your results.</li></ol>
+	</li><li><b>Build </b>your robot code and set it to<b>&nbsp;</b><b>Run as Startup</b>, as shown in the images below.
+	<p style="text-align: center;"><img alt="" src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/rtaImage(3)"></p>
+	</li><li>Check that the Dashboard sees the Network Tables correctly. If you have difficulty&nbsp;with this step, make sure your firewalls are off, you've instructed Windows to allow the app, and your third-party antivirus is disabled. You can also try restarting the Driver Station application&nbsp;and your Dashboard.
+	<p style="text-align: center;"><img alt="" src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/rtaImage(4)"></p>
+	</li><li>Select the camera from the Dashboard’s menu. If you do not see the camera in the list, or the camera display toggles between robot addresses without counting down or showing the name of the camera:&nbsp;
+	<ol start="1" style="list-style-type: upper-alpha;"><li>Try restarting&nbsp;the robot code using the button highlighted below:
+		<p style="text-align: center;"><img alt="" src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/rtaImage(5)"></p>
+		</li><li>Make sure the roboRIO can see the camera correctly. You can do this using NI MAX. Find your roboRIO under the <b>Remote Devices</b> section on the left. When you expand the listing for your roboRIO, you should see your camera.&nbsp;</li><li>Determine if the camera is communicating with the roboRIO by running the <a href="https://forums.ni.com/t5/FIRST-Robotics-Competition/FRC-2019-Testing-your-camera-s-compatibility-with-the-NI-roboRIO/ta-p/3890295" target="_blank">Camera Compatibility Test</a> tool on your roboRIO. This will connect to your camera and run through all of the different configuration options.
+		<ol><li>While the test is running watch the stream on the left to make sure the camera feed is coming through.</li><li>When the test is done, check if any modes are listed as successful. Try setting your camera to one of these modes.</li></ol>
+		</li></ol>
+	</li><li>If the camera is detected by the roboRIO and can be seen in the Dashboard’s drop-down menu, but the image is still not displaying, then try lowering the resolution and increasing&nbsp;the compression.
+	<p style="text-align: center;"><img alt="" src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/rtaImage(6)"></p>
+
+	<ol start="1" style="list-style-type: upper-alpha;"><li>If none of the modes are successful and you don't see any images on the camera stream, the camera may not be working correctly. Plug the camera directly into your PC to verify that the hardware works.
+		<ol start="1" style="list-style-type: lower-alpha;"><li>If you have LabVIEW installed on your computer, you have access to a tool called NI MAX. This tool will not only allow you to test whether your camera captures images, but also allows you to manually adjust the camera's settings for more in-depth testing. See <b>Additional Information</b> below for information about how to use NI MAX to test your camera.</li><li>If you do not have LabVIEW installed, you can use any programs installed on your PC that use a webcam (like Skype, Debut, Windows Camera, etc) to test.</li></ol>
+		</li></ol>
+	</li><li>Try with an additional laptop or roboRIO to isolate if the behavior is device specific or not.</li></ol>
+                                    </div></span><span id="j_id0:j_id1:j_id24:j_id60:2:j_id61">
+                                    <div class="blog-post">
+                                        <h2>Additional Information</h2><p>You can find more information about creating and building a dashboard here:&nbsp;<a href="https://forums.ni.com/t5/FIRST-Robotics-Competition/FRC-Dashboard-Tutorial/ta-p/3732661" target="_blank">FRC Dashboard Tutorial</a>.<br><br>Best practices to use with the Field Management System (FMS) during a match:</p>
+
+<ol><li>Make sure all applications on the laptop are closed.</li><li>Place the robot on the field and power it up.</li><li>Connect the Driver Station’s Ethernet cable&nbsp;to your laptop.</li><li>Open the FRC Driver Station executable.</li><li>The Driver Station should bring up the FRC Dashboard, too.&nbsp;
+	<ol><li>Open the FRC Dashboard if this is not the case.</li></ol>
+	</li><li>Select the camera in the dashboard (if not selected already).</li><li>The image should appear shortly after communications are established.
+	<ol><li>If you do not receive an image, go through the troubleshooting process described in this article.</li></ol>
+	</li></ol>
+&nbsp;
+
+<h3>Using NI MAX to test your camera</h3>
+If you have LabVIEW installed, you can test your camera using the NI Measurement and Automation Explorer, or NI MAX. Here's how to access your camera from within NI MAX:
+
+<ol><li>Open NI MAX, and under My System, expand Devices and Interfaces. Click on your camera in the list.</li></ol>
+
+<div style="text-align: center;"><img alt="" src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/rtaImage(7)"></div>
+
+<ol start="2"><li>Click one of the acquisition options along the top of the window, to determine whether your camera hardware is working as expected.
+	<ul><li>Snap will take one test image</li><li>Grab will start streaming test images until clicked a second time</li></ul>
+	</li></ol>
+
+<div style="text-align: center;"><img alt="" src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/rtaImage(8)"></div>
+<br><i>Note</i>: If you would like to access specific camera properties, the most common ones will be shown on the <b>Acquisition Attributes</b> page. The rest are available under the <b>Camera Attributes</b> tab.<br>&nbsp;
+<h3>2019.2.1 Release notes</h3>
+
+<h4>FRC Dashboard</h4>
+The LabVIEW/default dashboard implements a retry timeout and will close the connection if a valid image is not received after N seconds -- possibly resulting in an error 66 being reported from the roboRIO LabVIEW code. In the 2019 kickoff version of the dashboard, that timeout was set to 10 seconds. For the 2019.2 and 2019.2.1 versions, it has been extended to 30 seconds. The increased timeout allows for longer connection time.<br>&nbsp;<br>The dashboard also relies on a localhost socket to be told the robot IP address to establish a Network Tables connection. In some situations, this socket doesn't connect, leaving the dashboard running without a connection to Network Tables. This may also impact camera connection since camera descriptions are shared via Network Tables. The 2019.2.1 dashboard uses an additional socket and protocol for receiving the robot IP address from the Driver Station. Even with this fix, we still see some situations where the Driver Station knows the robot IP, but the dashboard doesn't connect network tables. If this occurs, restart the dashboard and possibly the driver station.<br>&nbsp;
+<h4>Robot</h4>
+The LabVIEW camera server, implemented in <span style="font-family: courier new,courier,monospace;">WPI_CameraSend Images To PC Loop.vi</span>, is responsible for publishing the URLs that enable the dashboard to connect to cameras connected to the roboRIO. The list of URLs include both hostname and resolved IP formats. If the camera server code executes and resolves the IP before the robot radio has assigned an IP address, this can result in an invalid IP address being latched and published. Additionally, if the connection to robot changes connection (for example: moving from USB connection to WiFi), the published IP address may not work for the new network. Ideally, the hostname form of URL would resolve, allowing for successful camera connection, but current FMS networking often fails to resolve successfully.<br>&nbsp;<br>The code to publish the URLs for the camera server now includes all listed interfaces except for localhost forms. It will also republish about every 5 seconds in case the network type changes or completes booting. The host name form is still included in the list of URLs.
+                                    </div></span><span id="j_id0:j_id1:j_id24:j_id65">
+                                <div class="blog-post attachment">
+                                    <div class="row">
+                                        <h2>Attachments</h2>
+                                            <div class="attachmentLink">
+                                                <a class="ni-free-standing" download="2019.2.1_LVDashboards.zip" href="https://natinst.my.salesforce.com/sfc/dist/version/download/?oid=00Di0000000jTAB&amp;ids=0680Z000005pv3v&amp;d=%2Fa%2F0Z000000J13x%2FyI9Xo8XBws3e7CYPNX4IXSXK3yWxpQjGXJO6feqVRPY&amp;asPdf=false" role="button"><svg enable-background="new 0 0 84 84" height="30px" id="Layer_1" version="1.1" viewBox="0 0 84 84" width="30px" x="0px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" y="0px">
+                                                    <g>
+                                                        <path d="M75,63v18h-2h-6H17h-6H9V63h8v14h50V63H75z M60.385,49.444l-2.828-2.828L44,60.172V17h-4v43.172                                                                  L26.444,46.616l-2.828,2.828L42,67.828L60.385,49.444z" fill="#004987"></path>
+                                                        <rect fill="none" height="84" width="84"></rect>
+                                                    </g>
+                                                    </svg> <span class="nav-text">2019.2.1_LVDashboards.zip</span></a>
+                                            </div>
+                                    </div>
+                                </div></span>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-4 center-block">
+                                    <div class="kbFeedback ax_default" data-height="163" data-label="Article Rating" data-left="564" data-top="1652" data-width="267" id="u564">
+                                        <div class="ax_default heading_4 text-center" id="u565">
+                                            <div id="u565_div"></div>
+                                            <div class="text" id="u566">
+                                                <h4>WAS THIS ARTICLE HELPFUL?</h4>
+                                            </div>
+                                        </div>
+                                        <div class="row kbFeedbackContent">
+                                            <div class="ax_default box_3" id="u567">
+                                                <div id="u567_div"></div>
+                                                <div class="text" id="u568" style="display: none; visibility: hidden">
+                                                    <p>
+                                                        <span></span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6 col-sm-6 text-center like">
+                                                <div class="iconBox" onclick="getRemoteAccount(&#39;helpful&#39;, this); NIAnalytics.captureRating({&#39;eventName&#39;:&#39;thumbclick&#39;, &#39;eventLabel&#39;:&#39;helpful&#39;});">
+                                                    <div class="ax_default paragraph" id="u571">
+                                                        <div id="u571_div"></div>
+                                                        <div class="text" id="u572">
+                                                            <p>
+                                                                <span>Helpful</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ax_default icon" id="u569" style="cursor: pointer;">
+                                                        <i class="fa fa-thumbs-o-up"></i>
+                                                        <div class="text" id="u570" style="display: none; visibility: hidden">
+                                                            <p id="cache0">
+                                                                <span id="cache1"></span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6 col-sm-6 text-center dislike">
+                                                <div class="iconBox" onclick="getRemoteAccount(&#39;notHelpful&#39;, this); NIAnalytics.captureRating({&#39;eventName&#39;:&#39;thumbclick&#39;, &#39;eventLabel&#39;:&#39;not helpful&#39;});">
+                                                    <div class="ax_default paragraph" id="u573">
+                                                        <div id="u573_div"></div>
+                                                        <div class="text" id="u574">
+                                                            <p>
+                                                                <span>Not Helpful</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ax_default icon" id="u575" style="cursor: pointer;">
+                                                        <i class="fa fa-thumbs-o-down"></i>
+                                                        <div class="text" id="u576" style="display: none; visibility: hidden">
+                                                            <p id="cache2">
+                                                                <span id="cache3"></span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="firstTimeVote hidden">
+                                    <div class="col-xs-12 ni-notification-inline ni-confirmation">
+                                        <span class="img"></span>
+                                        <p>Thank you for your feedback.</p>
+                                    </div>
+                                </div>
+                                <div class="changeVoteText hidden">
+                                    <div class="col-xs-12 ni-notification-inline ni-information">
+                                        <span class="img"></span>
+                                        <p class="hidden" id="messageHelpful">You changed your response to Not Helpful</p>
+                                        <p class="hidden" id="messageNotHelpful">You changed your response to Helpful</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="divider"></div>
+                
+                
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            
+                            <div class="relatedArticles">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                    </div>
+                                    
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                        <h2>Other Support Options</h2>
+                                        <h3>Ask the NI Community</h3>
+                                        <p>Collaborate with other users in our discussion forums</p>
+                                        <ul>
+                                            <li class="other-support-options-li" type="square"><a href="https://forums.ni.com/t5/Discussion-Forums/ct-p/discussion-forums">Search the NI Community for a solution</a>
+                                            </li>
+                                        </ul>
+                                        <br>
+                                        <br>
+                                        <h3>Request Support from an Engineer</h3>
+                                        <p>A valid service agreement may be required, and support options vary by country.</p>
+                                        <ul>
+                                            <div class="col-xs-6">
+                                                <li class="other-support-options-li" type="square"><a href="https://sine.ni.com/srm/app/newrequest">Open a service request</a>
+                                                </li>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <li class="other-support-options-li" type="square"><a href="http://www.ni.com/services/software/benefits/">Purchase or renew support services</a>
+                                                </li>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id="lightning"></div><div id="j_id0:j_id1:j_id24:j_id80"></div>
+</form><span id="ajax-view-state-page-container" style="display: none"><span id="ajax-view-state" style="display: none"><input type="hidden" id="com.salesforce.visualforce.ViewState" name="com.salesforce.visualforce.ViewState" value="i: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"><input type="hidden" id="com.salesforce.visualforce.ViewStateVersion" name="com.salesforce.visualforce.ViewStateVersion" value="201903050145170173"><input type="hidden" id="com.salesforce.visualforce.ViewStateMAC" name="com.salesforce.visualforce.ViewStateMAC" value="AGV5SnViMjVqWlNJNklsa3dhVjltTjBzNVgxazRkbWcxUW5KWVNXbFNSa3RmVms5VlZuUTRWR1Z5YUZoYU1GQTRWR1JUVXpoY2RUQXdNMlFpTENKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUlzSW10cFpDSTZJbnRjSW5SY0lqcGNJakF3Ukdrd01EQXdNREF3YWxSQlFsd2lMRndpZGx3aU9sd2lNREpITUZvd01EQXdNREJNV0hnMVhDSXNYQ0poWENJNlhDSjJabk5wWjI1cGJtZHJaWGxjSWl4Y0luVmNJanBjSWpBd05UQmFNREF3TURBNFZsQnVaVndpZlNJc0ltTnlhWFFpT2xzaWFXRjBJbDBzSW1saGRDSTZNVFUxTWpBeE1UTXpPRGd4TWl3aVpYaHdJam93ZlE9PS4uNk5OUVR5YmItekVNYlBVdFNhbWVYeWU1b0hWOHFjU001dnJNSnZMT3FRQT0="></span></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <div id="ni-vis-foot">
+ 
+ 
+    
+  
+  <!--Cookie Law component -->
+<div id="cookieLaw" class="ni-darkgrey" style="display: block;">
+<div class="container">
+  <div class="row">
+  <div class="col-xs-12 col-sm-10">
+<p>This site uses cookies to offer you a better browsing experience.  Learn more about <a href="https://www.ni.com/legal/privacy/unitedstates/us/">our privacy policy.</a></p>
+  </div>
+  <div class="col-xs-12 col-sm-2 text-right">
+  <button id="btnUnderstood" class="ni-uppercase ni-btn ni-btn-tertiary" type="button">OK</button>
+  </div>
+  </div>
+</div>
+</div>
+  
+  <!-- FOOTER -->
+   <footer class="footer noindex">
+<div class="container-fluid">
+<div class="row">
+<div class="container">
+<div class="row clearfix">
+<!--Footer Nav component -->
+   <div class="hidden-xs footer-nav col-xs-12 col-sm-12 col-md-9 col-lg-9">
+    <div class="col-xs-4 left">
+      <h4>PRODUCT</h4>
+      <ul>
+          <li>
+            <a class="analytics-footer-link" href="https://www.ni.com/status/">Order status and history</a>
+          </li>
+          <li>
+            <a class="analytics-footer-link" href="https://sine.ni.com/apps/utf8/nios.store?action=purchase_form">Order by part number</a>
+          </li>
+          <li>
+            <a class="analytics-footer-link" href="https://sine.ni.com/myproducts/app/main.xhtml?lang=en">Activate a product</a>
+          </li>
+          <li>
+            <a class="analytics-footer-link" href="https://www.ni.com/how-to-buy/">Order and payment information</a>
+          </li>
+      </ul>
+    </div>
+    <div class="col-xs-4">
+      <h4>SUPPORT</h4>
+      <ul>
+          <li>
+            <a class="analytics-footer-link" href="https://sine.ni.com/srm/app/myServiceRequests">Submit a service request</a>
+          </li>
+          <li>
+            <a class="analytics-footer-link" href="https://www.ni.com/manuals/">Manuals</a>
+          </li>
+          <li>
+            <a class="analytics-footer-link" href="https://www.ni.com/downloads/drivers/">Drivers</a>
+          </li>
+          <li>
+            <a class="analytics-footer-link" href="https://www.ni.com/alliance/">Alliance Partners</a>
+          </li>
+      </ul>
+    </div>
+    <div class="col-xs-4">
+      <h4>COMPANY</h4>
+      <ul>
+          <li>
+            <a class="analytics-footer-link" href="https://www.ni.com/company/">About National Instruments</a>
+          </li>
+          <li>
+            <a class="analytics-footer-link" href="https://www.ni.com/en-us/events.html">Events</a>
+          </li>
+          <li>
+            <a class="analytics-footer-link" href="https://www.ni.com/careers/">Careers</a>
+          </li>
+          <li>
+            <a class="analytics-footer-link" href="https://www.ni.com/contact-us/">Contact Us</a>
+          </li>
+      </ul>
+    </div>
+  </div>
+<!--Footer Nav component mobile -->
+  <!-- Accordion for xs devices-->
+  <div class="visible-xs col-xs-12 panel-section">
+    <div class="panel-group" id="accordion">
+      <div class="panel inactive panel-default">
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><h4 class="panel-title">PRODUCT</h4>
+        </div>
+        <div id="collapse1" class="panel-collapse collapse">
+          <div class="panel-body">
+            <ul>
+                <li>
+                  <a class="analytics-footer-link" href="https://www.ni.com/status/">Order status and history</a>
+                </li>
+                <li>
+                  <a class="analytics-footer-link" href="https://sine.ni.com/apps/utf8/nios.store?action=purchase_form">Order by part number</a>
+                </li>
+                <li>
+                  <a class="analytics-footer-link" href="https://sine.ni.com/myproducts/app/main.xhtml?lang=en">Activate a product</a>
+                </li>
+                <li>
+                  <a class="analytics-footer-link" href="https://www.ni.com/how-to-buy/">Order and payment information</a>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="panel inactive panel-default">
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><h4 class="panel-title">SUPPORT</h4>
+        </div>
+        <div id="collapse2" class="panel-collapse collapse">
+          <div class="panel-body">
+            <ul>
+                <li>
+                  <a class="analytics-footer-link" href="https://sine.ni.com/srm/app/myServiceRequests">Submit a service request</a>
+                </li>
+                <li>
+                  <a class="analytics-footer-link" href="https://www.ni.com/manuals/">Manuals</a>
+                </li>
+                <li>
+                  <a class="analytics-footer-link" href="https://www.ni.com/downloads/drivers/">Drivers</a>
+                </li>
+                <li>
+                  <a class="analytics-footer-link" href="https://www.ni.com/alliance/">Alliance Partners</a>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="panel inactive panel-default">
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><h4 class="panel-title">COMPANY</h4>
+        </div>
+        <div id="collapse3" class="panel-collapse collapse">
+          <div class="panel-body">
+            <ul>
+                <li>
+                  <a class="analytics-footer-link" href="https://www.ni.com/company/">About National Instruments</a>
+                </li>
+                <li>
+                  <a class="analytics-footer-link" href="https://www.ni.com/en-us/events.html">Events</a>
+                </li>
+                <li>
+                  <a class="analytics-footer-link" href="https://www.ni.com/careers/">Careers</a>
+                </li>
+                <li>
+                  <a class="analytics-footer-link" href="https://www.ni.com/contact-us/">Contact Us</a>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+            
+<div class="motto-table col-xs-12 col-sm-12 col-md-3 col-lg-3">
+<!--Motto component -->
+ <div class="motto">
+   <h4>MISSION</h4>
+   <p>NI equips engineers and scientists with systems that accelerate productivity, innovation, and discovery.</p>
+ </div>
+          
+<!-- TRUSTe logo and GG visible just for xs devices -->
+<div class="visible-xs">
+<div class="row">
+<!--Global Gateway-->
+  <div class="col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1 col-xs-8">
+      <div class="footer-gg">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 45 45" xml:space="preserve">
+          <g id="XMLID_1_">
+            <g>
+              <path fill="#fff" d="M22,0C9.8,0,0,9.8,0,22s9.8,22,22,22s22-9.8,22-22S34.2,0,22,0z M36.4,35.7c-0.3,0.3-0.6,0.6-0.9,0.9l0,0   c-2.6,2.4-6,4.2-9.6,4.8c2.8-2.5,5.1-5.7,6.7-9.2c1.5,0.9,2.8,2,4.1,3.2C36.5,35.6,36.4,35.7,36.4,35.7z M7.6,8.3   C8,8,8.3,7.6,8.6,7.3l0,0c2.6-2.4,6-4.2,9.6-4.8c-2.8,2.5-5.1,5.7-6.7,9.2c-1.5-0.9-2.8-2-4.1-3.2C7.5,8.4,7.6,8.3,7.6,8.3z    M36.4,8.3l0.1,0.1c-1.3,1.3-2.6,2.4-4.1,3.2c-1.6-3.6-3.8-6.7-6.7-9.2c3.8,0.7,7.1,2.5,9.7,4.9l0,0C35.7,7.6,36,8,36.4,8.3z    M21,14.6c-2.6-0.1-5.2-0.8-7.5-1.9c1.6-3.7,4-6.9,7.2-9.5H21V14.6z M21,16.8V21h-9.4c0.1-2.2,0.4-4.3,1.2-6.3   C15.2,15.8,18,16.6,21,16.8z M21,23v4.2c-2.9,0.1-5.8,0.8-8.3,2.1c-0.6-2-1-4.1-1.2-6.3H21z M21,29.4v11.4h-0.3   c-3.2-2.6-5.8-5.9-7.2-9.5C15.7,30.2,18.3,29.5,21,29.4z M23,29.4c2.6,0.1,5.2,0.8,7.5,1.9c-1.6,3.7-4,7-7.2,9.5H23V29.4z M23,27.2   V23h9.3c-0.1,2.2-0.4,4.3-1,6.3C28.8,28.1,26,27.4,23,27.2z M23,21v-4.2c2.9-0.1,5.7-0.8,8.2-2c0.6,2,1,4.1,1.2,6.3H23V21z    M23,14.6V3.1h0.1c3.2,2.6,5.8,5.9,7.3,9.5C28.2,13.8,25.7,14.5,23,14.6z M10.8,13.7C10.1,16,9.5,18.4,9.4,21H2.1   c0.2-4.2,1.7-8.1,4.1-11.1v0.3C7.6,11.5,9.1,12.7,10.8,13.7z M9.4,23c0.1,2.5,0.5,5,1.4,7.2c-1.7,0.9-3.1,2.2-4.5,3.6v0.3   c-2.4-3-3.9-6.9-4.1-11.1H9.4z M7.6,35.7l-0.1-0.1c1.3-1.3,2.6-2.4,4.1-3.2c1.6,3.6,3.8,6.7,6.7,9.2c-3.7-0.7-6.9-2.4-9.6-4.8l0,0   C8.3,36.4,8,36,7.6,35.7z M33.2,30.3c0.7-2.3,1.3-4.7,1.4-7.2h7.3c-0.2,4.2-1.7,8.1-4.1,11.1v-0.3C36.4,32.5,34.9,31.3,33.2,30.3z    M34.6,21c-0.1-2.5-0.5-5-1.4-7.2c1.7-0.9,3.1-2.2,4.5-3.6V9.8c2.4,3.1,3.9,6.9,4.1,11.1H34.6z"></path>
+            </g>
+          </g>
+        </svg>
+        <a class="global-gateway analytics-utilitygg-link">
+          <span class="country" style="overflow-wrap: break-word; white-space: normal;">United States</span>
+        </a>
+   <!-- global gateway panel -->
+   
+        <div class="gg-panel">
+            <div>
+      <div class="col-xs-6">
+       <ul>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="en-AU">Australia</a>
+                            </li>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="pt-BR">Brasil</a>
+                            </li>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="en-CA">Canada (English)</a>
+                            </li>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="fr-CA">Canada (Français)</a>
+                            </li>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="de-DE">Deutschland</a>
+                            </li>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="es-ES">España</a>
+                            </li>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="fr-FR">France</a>
+                            </li>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="en-IN">India</a>
+                            </li>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="it-IT">Italia</a>
+                            </li>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="hu-HU">Magyarország</a>
+                            </li>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="en-MY">Malaysia</a>
+                            </li>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="es-MX">México</a>
+                            </li>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="nl-NL">Nederland</a>
+                            </li>
+        </ul>
+      </div>
+       <div class="col-xs-6">
+       <ul>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="de-AT">Österreich</a>
+         </li>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="pl-PL">Polska</a>
+         </li>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="de-CH">Schweiz</a>
+         </li>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="en-SG">Singapore</a>
+         </li>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="fr-CH">Suisse</a>
+         </li>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="sv-SE">Sverige</a>
+         </li>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="en-GB">United Kingdom</a>
+         </li>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="en-US">United States</a>
+         </li>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="ru-RU">Российская Федерация</a>
+         </li>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="zh-CN">中国 (China)</a>
+         </li>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="ja-JP">日本 (Japan)</a>
+         </li>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="ko-KR">대한민국 (Korea)</a>
+         </li>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="zh-TW">中國台灣 （Taiwan, China)</a>
+         </li>
+        </ul></div>
+ 
+    </div>
+    <div>
+      <div class="col-xs-12 gg-panel-bottom ">
+                           <a href="https://www.ni.com/global-gateway?rtrn=https%3A%2F%2Fknowledge.ni.com%2Fknowledgearticledetails%3Fid%3Dka00z000001dcmwsac%26l%3Den-us" class="analytics-utilityggallcountries-link global-gateway">See All Countries and Regions</a>
+                  
+      </div>
+         <div class="arrow"></div>
+    </div>
+           
+            </div>
+      </div>
+  </div>
+<!--TRUSTe logo component -->
+<div class="col-xs-4">
+   
+    
+   <a class="analytics-footer-link truste-image" href="http://privacy.truste.com/privacy-seal/validation?rid=342a514a-c792-40e3-ae36-17c7491387a7" target="_blank">
+              <img class="img-responsive" src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/truste_seal.png" alt="TRUSTe">
+          </a>
+                     
+</div>
+</div>
+</div>
+  <!--Social Media component -->
+                                <div class="footer-social-media">
+<div id="niaSvgSocial">
+     <a href="http://www.facebook.com/NationalInstruments" class="analytics-footer-link"><svg class="footer-social" viewBox="0 0 35 35"><path style="fill:#FFFFFF;" d="M33.1,0H2C0.9,0,0.1,0.9,0.1,1.9V33c0,1.1,0.9,1.9,1.9,1.9h16.8V21.3h-4.6V16h4.6v-3.9
+c0-4.5,2.8-7,6.8-7c1.9,0,3.6,0.1,4.1,0.2v4.7h-2.8c-2.2,0-2.6,1-2.6,2.6v3.4h5.2l-0.7,5.3h-4.6V35H33c1.1,0,1.9-0.9,1.9-1.9V2
+C35,0.9,34.1,0,33.1,0z"></path></svg></a>
+     <a href="https://twitter.com/niglobal" class="analytics-footer-link"><svg class="footer-social" viewBox="0 -4 42 42"><path style="fill:#FFFFFF;" d="M44.4,4c-1.6,0.7-3.4,1.2-5.2,1.4c1.9-1.1,3.3-2.9,4-5.1c-1.8,1-3.7,1.8-5.8,2.2
+c-1.7-1.8-4-2.9-6.7-2.9c-5,0-9.1,4.1-9.1,9.1c0,0.7,0.1,1.4,0.2,2.1C14.2,10.6,7.5,6.9,3,1.4C2.2,2.8,1.7,4.3,1.7,6
+c0,3.2,1.6,6,4.1,7.6c-1.5,0-2.9-0.5-4.1-1.1c0,0,0,0.1,0,0.1c0,4.4,3.2,8.1,7.3,9c-0.8,0.2-1.6,0.3-2.4,0.3
+c-0.6,0-1.2-0.1-1.7-0.2c1.2,3.6,4.5,6.3,8.5,6.4C10.3,30.5,6.3,32,2,32c-0.7,0-1.5,0-2.2-0.1c4,2.6,8.9,4.1,14,4.1
+c16.8,0,26-13.9,26-26c0-0.4,0-0.8,0-1.2C41.6,7.5,43.2,5.9,44.4,4z"></path></svg></a>
+     <a href="http://www.linkedin.com/company/3433?trk=tyah" class="analytics-footer-link"><svg class="footer-social" viewBox="0 0 35 35"><path style="fill:#FFFFFF;" d="M33.1,0H2C0.9,0,0,0.9,0,2v31c0,1.1,0.9,2,2,2H33c1.1,0,2-0.9,2-2V2C35.1,0.9,34.2,0,33.1,0
+ M10.4,30.6H4.7V13.7h5.7V30.6L10.4,30.6z M7.5,11.5L7.5,11.5c-1.9,0-3.1-1.3-3.1-2.9c0-1.7,1.3-2.9,3.2-2.9s3.1,1.3,3.1,2.9
+S9.5,11.5,7.5,11.5 M30.7,30.6h-5.6v-9.1c0-2.3-0.8-3.8-2.9-3.8c-1.6,0-2.5,1-2.9,2.1c-0.1,0.4-0.2,0.9-0.2,1.4v9.5h-5.6
+c0,0,0.1-15.4,0-16.9H19v2.4c0.7-1.2,2.1-2.8,5.1-2.8c3.7,0,6.5,2.4,6.5,7.6C30.7,21,30.7,30.6,30.7,30.6z"></path></svg></a>
+     <a href="https://www.youtube.com/nationalinstruments" class="analytics-footer-link"><svg class="footer-social" viewBox="0 -10 46 47"><path style="fill:#FFFFFF;" d="M43.5,5.7c0,0-0.5-3.1-1.8-4.4c-1.7-1.8-3.6-1.8-4.4-1.8C31-1,21.7-1,21.7-1l0,0
+c0,0-9.4,0-15.6,0.5C5.2-0.4,3.3-0.4,1.6,1.3C0.2,2.7-0.1,5.7-0.1,5.7S-0.6,9.4-0.6,13v3.4c0,3.6,0.5,7.2,0.5,7.2
+s0.5,3.1,1.8,4.4c1.7,1.8,4,1.8,4.9,1.9c3.6,0.4,15.2,0.5,15.2,0.5s9.4,0,15.6-0.5c0.8-0.1,2.8-0.1,4.4-1.8
+c1.4-1.4,1.8-4.4,1.8-4.4s0.5-3.6,0.5-7.2v-3.4C44,9.4,43.5,5.7,43.5,5.7z M17,20.5V8l12.1,6.3L17,20.5z"></path></svg></a>
+</div>
+                                </div>
+</div>
+</div>
+</div>
+</div>
+<div class="row clearfix legal">
+<div class="container">
+<div class="row desktop">
+<!--Legal component -->
+    <div class="legal-desktop hidden-xs col-md-8 col-sm-7">
+    <!--TRUSTe logo component-->
+          <div class="left">
+   
+    
+   <a class="analytics-footer-link truste-image" href="http://privacy.truste.com/privacy-seal/validation?rid=342a514a-c792-40e3-ae36-17c7491387a7" target="_blank">
+              <img class="img-responsive" src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/truste_seal.png" alt="TRUSTe">
+          </a>
+                     
+          </div>
+          <div class="legal-copy">
+              <a class="analytics-footer-link" href="https://www.ni.com/legal/">Legal | </a>
+              <a class="analytics-footer-link" href="http://www.ni.com/en-us/about-ni/legal/privacy/privacy-statement.html">Privacy </a>
+            <span class="pipe">|</span> © <span class="copyright">2019</span>  National Instruments. All rights reserved.
+          </div>
+    </div>
+  
+<div class="visible-xs contact-us col-xs-12">
+<!--Legal component mobile -->
+<div class="visible-xs legal-skinny-mobile">
+    <!--Contact Us component mobile-->
+ <p>(800) 531-5066</p>
+    <p>
+       <a class="analytics-footer-link" href="https://www.ni.com/legal/">Legal | </a>
+       <a class="analytics-footer-link" href="http://www.ni.com/en-us/about-ni/legal/privacy/privacy-statement.html">Privacy </a>
+      <span class="pipe">|</span> © <span class="copyright">2019</span>  National Instruments. All rights reserved. 
+    </p>      
+  </div>    
+</div>
+<div class="hidden-xs">
+  <div class="col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1 col-xs-8">
+      <div class="footer-gg">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 45 45" xml:space="preserve">
+          <g id="XMLID_1_">
+            <g>
+              <path fill="#fff" d="M22,0C9.8,0,0,9.8,0,22s9.8,22,22,22s22-9.8,22-22S34.2,0,22,0z M36.4,35.7c-0.3,0.3-0.6,0.6-0.9,0.9l0,0   c-2.6,2.4-6,4.2-9.6,4.8c2.8-2.5,5.1-5.7,6.7-9.2c1.5,0.9,2.8,2,4.1,3.2C36.5,35.6,36.4,35.7,36.4,35.7z M7.6,8.3   C8,8,8.3,7.6,8.6,7.3l0,0c2.6-2.4,6-4.2,9.6-4.8c-2.8,2.5-5.1,5.7-6.7,9.2c-1.5-0.9-2.8-2-4.1-3.2C7.5,8.4,7.6,8.3,7.6,8.3z    M36.4,8.3l0.1,0.1c-1.3,1.3-2.6,2.4-4.1,3.2c-1.6-3.6-3.8-6.7-6.7-9.2c3.8,0.7,7.1,2.5,9.7,4.9l0,0C35.7,7.6,36,8,36.4,8.3z    M21,14.6c-2.6-0.1-5.2-0.8-7.5-1.9c1.6-3.7,4-6.9,7.2-9.5H21V14.6z M21,16.8V21h-9.4c0.1-2.2,0.4-4.3,1.2-6.3   C15.2,15.8,18,16.6,21,16.8z M21,23v4.2c-2.9,0.1-5.8,0.8-8.3,2.1c-0.6-2-1-4.1-1.2-6.3H21z M21,29.4v11.4h-0.3   c-3.2-2.6-5.8-5.9-7.2-9.5C15.7,30.2,18.3,29.5,21,29.4z M23,29.4c2.6,0.1,5.2,0.8,7.5,1.9c-1.6,3.7-4,7-7.2,9.5H23V29.4z M23,27.2   V23h9.3c-0.1,2.2-0.4,4.3-1,6.3C28.8,28.1,26,27.4,23,27.2z M23,21v-4.2c2.9-0.1,5.7-0.8,8.2-2c0.6,2,1,4.1,1.2,6.3H23V21z    M23,14.6V3.1h0.1c3.2,2.6,5.8,5.9,7.3,9.5C28.2,13.8,25.7,14.5,23,14.6z M10.8,13.7C10.1,16,9.5,18.4,9.4,21H2.1   c0.2-4.2,1.7-8.1,4.1-11.1v0.3C7.6,11.5,9.1,12.7,10.8,13.7z M9.4,23c0.1,2.5,0.5,5,1.4,7.2c-1.7,0.9-3.1,2.2-4.5,3.6v0.3   c-2.4-3-3.9-6.9-4.1-11.1H9.4z M7.6,35.7l-0.1-0.1c1.3-1.3,2.6-2.4,4.1-3.2c1.6,3.6,3.8,6.7,6.7,9.2c-3.7-0.7-6.9-2.4-9.6-4.8l0,0   C8.3,36.4,8,36,7.6,35.7z M33.2,30.3c0.7-2.3,1.3-4.7,1.4-7.2h7.3c-0.2,4.2-1.7,8.1-4.1,11.1v-0.3C36.4,32.5,34.9,31.3,33.2,30.3z    M34.6,21c-0.1-2.5-0.5-5-1.4-7.2c1.7-0.9,3.1-2.2,4.5-3.6V9.8c2.4,3.1,3.9,6.9,4.1,11.1H34.6z"></path>
+            </g>
+          </g>
+        </svg>
+        <a class="global-gateway analytics-utilitygg-link">
+          <span class="country" style="overflow-wrap: break-word; white-space: normal;">United States</span>
+        </a>
+   <!-- global gateway panel -->
+   
+        <div class="gg-panel">
+            <div>
+      <div class="col-xs-6">
+       <ul>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="en-AU">Australia</a>
+                            </li>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="pt-BR">Brasil</a>
+                            </li>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="en-CA">Canada (English)</a>
+                            </li>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="fr-CA">Canada (Français)</a>
+                            </li>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="de-DE">Deutschland</a>
+                            </li>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="es-ES">España</a>
+                            </li>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="fr-FR">France</a>
+                            </li>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="en-IN">India</a>
+                            </li>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="it-IT">Italia</a>
+                            </li>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="hu-HU">Magyarország</a>
+                            </li>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="en-MY">Malaysia</a>
+                            </li>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="es-MX">México</a>
+                            </li>
+                           <li class="analytics-utilityggsupportedcountry-link">
+                             <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="nl-NL">Nederland</a>
+                            </li>
+        </ul>
+      </div>
+       <div class="col-xs-6">
+       <ul>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="de-AT">Österreich</a>
+         </li>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="pl-PL">Polska</a>
+         </li>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="de-CH">Schweiz</a>
+         </li>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="en-SG">Singapore</a>
+         </li>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="fr-CH">Suisse</a>
+         </li>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="sv-SE">Sverige</a>
+         </li>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="en-GB">United Kingdom</a>
+         </li>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="en-US">United States</a>
+         </li>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="ru-RU">Российская Федерация</a>
+         </li>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="zh-CN">中国 (China)</a>
+         </li>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="ja-JP">日本 (Japan)</a>
+         </li>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="ko-KR">대한민국 (Korea)</a>
+         </li>
+         <li class="analytics-utilityggsupportedcountry-link">
+    <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001DcmwSAC&amp;l=en-US" data-locale="zh-TW">中國台灣 （Taiwan, China)</a>
+         </li>
+        </ul></div>
+ 
+    </div>
+    <div>
+      <div class="col-xs-12 gg-panel-bottom ">
+                           <a href="https://www.ni.com/global-gateway?rtrn=https%3A%2F%2Fknowledge.ni.com%2Fknowledgearticledetails%3Fid%3Dka00z000001dcmwsac%26l%3Den-us" class="analytics-utilityggallcountries-link global-gateway">See All Countries and Regions</a>
+                  
+      </div>
+         <div class="arrow"></div>
+    </div>
+           
+            </div>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+  
+<div class="modal fade modalsearch" id="wrapperSearchModal" tabindex="-1" role="dialog" aria-labelledby="wrapperSearchModal">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+</div>
+<form id="autoComplete-global" name="autoComplete-global" class="pnx-form" type="GET" action="https://search.ni.com/nisearch/app/main">
+<div class="autoCompleteItem-global">
+<div class="input-group stylish-input-group">
+<input placeholder="" class="niAutocompleteInput ui-autocomplete-input" data-search-type="globalSearch" type="text" id="n33_autoCompleteInput" name="q" lang="en-US" autocomplete="off">
+<input type="hidden" name="pg" id="pg" value="1" lang="en-US">
+<input type="hidden" name="sn" id="sn" value="" lang="en-US">
+<span class="input-group-addon">
+   <button type="submit">
+  <span class="search search-icon">
+ <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewBox="0 0 800 600" enable-background="new 0 0 800 600" xml:space="preserve">
+ <g id="XMLID_1_">
+ <g>
+ <path fill="#FFFFFF" d="M637.27,499.09l-38.18,38.18L413.64,351.82c-27.28,19.09-60,30-95.459,30    c-90,0-163.63-73.641-163.63-163.64c0-90,73.63-163.63,163.63-163.63c90,0,163.64,73.63,163.64,163.63    c0,35.46-10.91,68.18-30,95.459L637.27,499.09z M454.55,218.18c0-76.36-60-136.36-136.37-136.36c-76.36,0-136.36,60-136.36,136.36    c0,76.37,60,136.37,136.36,136.37C394.55,354.55,454.55,294.55,454.55,218.18z"></path>
+ </g>
+ </g>
+ </svg>
+  </span>
+   </button>  
+</span>
+<ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-2" tabindex="0" style="display: none;"></ul></div>
+</div>
+</form>
+</div>
+</div>
+</div> 
+ 
+</div>
+                    
+                </div>
+            </div>
+            <div id="ni-invis-foot"></div>
+            <script type="text/javascript">        
+            _satellite.pageBottom();        
+            </script>        
+        
+        
+    <script type="text/javascript">Sfdc.onReady(function(){
+	SfdcApp && SfdcApp.Visualforce && SfdcApp.Visualforce.VSManager && SfdcApp.Visualforce.VSManager.vfPrepareForms(["j_id0:j_id1:j_id24"]);
+
+});</script><div class="responsive-bootstrap-toolkit"><div class="device-xs visible-xs visible-xs-block"></div><div class="device-sm visible-sm visible-sm-block"></div><div class="device-md visible-md visible-md-block"></div><div class="device-lg visible-lg visible-lg-block"></div></div><iframe sandbox="allow-scripts allow-same-origin" title="Adobe ID Syncing iFrame" id="destination_publishing_iframe_nationalinsturments_0" name="destination_publishing_iframe_nationalinsturments_0_name" src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/dest5.html" style="display: none; width: 0px; height: 0px;" class="aamIframeLoaded"></iframe><script id="ebOneTagUrlId" src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/ebOneTag.js.download"></script><span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span><span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span><script type="text/javascript" src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/saved_resource"></script><script type="text/javascript" src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/Serving" async=""></script><script src="./Robot Camera Images Not Appearing in FRC Dashboard - National Instruments_files/CoreModule.js.download" defer=""></script></body></html>

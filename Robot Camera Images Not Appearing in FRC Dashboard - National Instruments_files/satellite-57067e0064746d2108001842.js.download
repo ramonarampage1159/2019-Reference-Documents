@@ -1,0 +1,575 @@
+if (typeof digitalData == "undefined") {
+  digitalData = { };
+}
+
+if (typeof NIAnalytics == "undefined") {
+  function NIAnalytics() { }
+}
+
+
+NIAnalytics.setCookie = function(cname, cvalue, sPath, domain) {
+    var d = new Date();
+    d.setTime(d.getTime() + (30*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();     
+    document.cookie = encodeURIComponent(cname) + "=" + encodeURIComponent(cvalue) + "; " + expires + (domain ? "; domain=" + domain : "") + (sPath ? "; path=" + sPath : "");
+}
+
+NIAnalytics.getQueryValue = function(variable, query) {
+    	var vars = query.split('&');
+      for (var i = 0; i < vars.length; i++) {
+      	var pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) == variable) {
+        	return decodeURIComponent(pair[1]);
+        }
+      }
+    }
+
+NIAnalytics.getMappedValue = function(map, key) {
+  if (typeof key == "undefined" || key == "") return "";
+  if (isNaN(Number(key))) return key.toLowerCase();
+  
+  var cat;
+  var mapPieces = map.split(".");
+  var tmp = window;
+  for (var i = 0; i<mapPieces.length; i++){
+    if (tmp[mapPieces[i]] != undefined && tmp[mapPieces[i]] != null){
+    	tmp = tmp[mapPieces[i]];
+      if (i == mapPieces.length-1){
+  			cat = tmp[key];
+      }
+    }
+    else break;
+  }
+  
+  var manualCat;
+  var manualMapPieces = "refdata.hrid.manual-entry".split(".");
+  var manualTmp = window;
+  for (var i = 0; i<manualMapPieces.length; i++){
+    if (manualTmp[manualMapPieces[i]] != undefined && manualTmp[manualMapPieces[i]] != null){
+    	manualTmp = manualTmp[manualMapPieces[i]];
+      if (i == manualMapPieces.length-1){
+  			manualCat = manualTmp[key];
+      }
+    }
+    else if (cat == undefined) return key;
+  }
+  
+  return ((cat != undefined)?cat:((manualCat != undefined)?manualCat:key));
+}
+
+NIAnalytics.getMappedValueFromDataLayer = function(map, keyString) {
+  if (typeof keyString == "undefined" || keyString == "") return "";
+  var key;
+  var levels= keyString.split(".");
+  if (levels[0] === "digitalData"){
+    levels.splice(0,1);
+    function dig(inWhat,levels){
+			if (levels.length == 1) {
+        if (levels[0].indexOf("[") == -1){
+          var deepest = inWhat[levels[0]];
+          if(typeof deepest !== "undefined"){
+            return deepest;
+          }
+        } else {
+          var deepestWithArray = inWhat[levels[0].split("[")[0]][levels[0].split("[")[1].split("]")[0]];
+          if(typeof deepestWithArray !== "undefined"){
+          	return deepestWithArray;
+          }
+        }
+			}
+			else {
+        if (levels[0].indexOf("[") == -1){
+          var deep = inWhat[levels[0]];
+          if(typeof deep !== "undefined"){
+            return dig(deep,levels.splice(1,levels.length-1));
+          }
+        } else {
+          if (!digitalData.hasOwnProperty(levels[0].split("[")[0])) {
+        		return "";
+        	}
+          var deepWithArray = inWhat[levels[0].split("[")[0]][levels[0].split("[")[1].split("]")[0]];
+          if(typeof deepWithArray !== "undefined"){
+          	return dig(deepWithArray,levels.splice(1,levels.length-1));
+          }
+        }
+			}
+    }
+    key = dig(digitalData,levels);
+  } else return "";
+  
+  var cat;
+  var mapPieces = map.split(".");
+  var tmp = window;
+  for (var i = 0; i<mapPieces.length; i++){
+    if (tmp[mapPieces[i]] != undefined && tmp[mapPieces[i]] != null){
+    	tmp = tmp[mapPieces[i]];
+      if (i == mapPieces.length-1){
+  			cat = tmp[key];
+      }
+    }
+    else break;
+  }
+  
+  var manualCat;
+  var manualMapPieces = "refdata.hrid.manual-entry".split(".");
+  var manualTmp = window;
+  for (var i = 0; i<manualMapPieces.length; i++){
+    if (manualTmp[manualMapPieces[i]] != undefined && manualTmp[manualMapPieces[i]] != null){
+    	manualTmp = manualTmp[manualMapPieces[i]];
+      if (i == manualMapPieces.length-1){
+  			manualCat = manualTmp[key];
+      }
+    }
+    else if (cat == undefined) return key;
+  }
+  
+  return ((cat != undefined)?cat:((manualCat != undefined)?manualCat:key));
+}
+
+NIAnalytics.getEventByName = function(name) {
+	var eventArray = _satellite.getVar("EVENT:DL");
+  for (var i = 0; i < eventArray.length; i++){
+    if (eventArray[i].eventInfo.eventName == name) return eventArray[i].eventInfo;
+  }
+  return undefined;
+}
+
+NIAnalytics.getLastEventByName = function(name) {
+	var eventArray = _satellite.getVar("EVENT:DL");
+  for (var i = Math.max(0, eventArray.length - 1); i >= 0; i--){
+    if (eventArray[i].eventInfo.eventName == name) return eventArray[i].eventInfo;
+  }
+  return undefined;
+}
+
+NIAnalytics.deleteFromDataLayer = function(toDeleteString) {
+  var levels= toDeleteString.split(".");
+  if (levels[0] === "digitalData"){
+    levels.splice(0,1);
+    function dig(inWhat,levels){
+			if (levels.length == 1) {
+				if (typeof inWhat[levels[0]] !== "undefined") inWhat[levels[0]] = "";
+			}
+			else {
+				if(typeof inWhat[levels[0]] !== "undefined"){
+					dig(inWhat[levels[0]],levels.splice(1,levels.length-1));
+				}
+			}
+    }
+    dig(digitalData,levels);
+  }
+}
+
+NIAnalytics.captureNavigation = function(json) { 
+  NIAnalytics.eventIndex = -1;
+  var eventProperties = ["eventName", "eventLabel", "eventDetail", "relatedProductID", "email"];
+  var savedEvent = false;
+  var tmp = {
+    "eventInfo" : {
+	  }
+  }
+  for (var prop in json) {
+    switch (true) {
+      case "internalCampaign" === prop:  
+        var t = new Date;
+        t.setTime(t.getTime()+1800000);
+        if(!s.c_w("icidAnalytics",1,t)){s.c_w("icidAnalytics",1,0)}
+        if (typeof digitalData.page == "undefined") digitalData.page = { };
+        if (typeof digitalData.page.attributes == "undefined") digitalData.page.attributes = { };
+        digitalData.page.attributes.internalCampaign = json["internalCampaign"];
+        break;
+	  	case eventProperties.indexOf(prop) > -1:
+				if (typeof digitalData.event == "undefined") digitalData.event = []
+        if (tmp.eventInfo[prop] === undefined) {
+          tmp.eventInfo[prop] = json[prop];
+        }
+        savedEvent = true;
+        break;
+      default:
+      	console.error("Unknown analytics parameter: " + prop);
+		}
+  }
+  if (savedEvent) {
+    digitalData.event.push(tmp);
+    NIAnalytics.eventIndex = digitalData.event.length - 1;
+  }
+  _satellite.track("captureNavigation");
+}
+
+
+globalLoaded = false;
+callbackVPL = false;
+NIAnalytics.captureVirtualPageLoad = function(json) {
+  if (globalLoaded) {
+  	s.clearVars();
+  	for (var prop in json) {
+    	switch(prop) {
+      	case "pageTabContent": 
+    			if (typeof digitalData.page == "undefined") digitalData.page = { };
+      		if (typeof digitalData.page.pageInfo == "undefined") digitalData.page.pageInfo = { };
+					digitalData.page.pageInfo.pageTabContent = json["pageTabContent"];
+      		break;
+      	case "category":
+        	if (typeof digitalData.product == "undefined") digitalData.product = [];
+        	if (typeof digitalData.product[0] == "undefined") digitalData.product[0] = {};
+        	if (typeof digitalData.product[0].category == "undefined") digitalData.product[0].category = {};
+        	digitalData.product[0].category.category = json["category"];
+    			if (typeof digitalData.page == "undefined") digitalData.page = { };
+      		if (typeof digitalData.page.pageInfo == "undefined") digitalData.page.pageInfo = { };
+					digitalData.page.pageInfo.pageTabContent = NIAnalytics.getMappedValue("refdata.hrid.pmdm_categories", json["category"]);
+      		break;
+      	case "partNumber":
+        	if (typeof digitalData.product == "undefined") digitalData.product = [];
+        	if (typeof digitalData.product[0] == "undefined") digitalData.product[0] = {};
+        	if (typeof digitalData.product[0].productInfo == "undefined") digitalData.product[0].productInfo = {};
+        	digitalData.product[0].productInfo.partNumber = json["partNumber"];
+      		break;
+      	default:
+        	console.error("Unknown analytics parameter: " + prop);
+    	}
+  	}
+  	_satellite.track("captureVirtualPageLoad");
+  } else {
+    callbackVPL = true;
+    callbackJson = json;
+  }
+}
+
+NIAnalytics.captureSearchSubmit = function(json) {
+  for (var prop in json) {
+    switch(prop) {
+      case "onsiteSearchTypedOrSuggested": 
+    		if (typeof digitalData.onsiteSearch == "undefined") digitalData.onsiteSearch = { };
+      	if (typeof digitalData.onsiteSearch.onsiteSearchInfo == "undefined") digitalData.onsiteSearch.onsiteSearchInfo = { };
+				digitalData.onsiteSearch.onsiteSearchInfo.onsiteSearchTypedOrSuggested = json["onsiteSearchTypedOrSuggested"];
+      	break;
+      case "onsiteSearchAutocompleteRank": 
+    		if (typeof digitalData.onsiteSearch == "undefined") digitalData.onsiteSearch = { };
+      	if (typeof digitalData.onsiteSearch.onsiteSearchInfo == "undefined") digitalData.onsiteSearch.onsiteSearchInfo = { };
+				digitalData.onsiteSearch.onsiteSearchInfo.onsiteSearchAutocompleteRank = json["onsiteSearchAutocompleteRank"];
+      	break;
+      case "onsiteSearchAutocompleteLOV": 
+    		if (typeof digitalData.onsiteSearch == "undefined") digitalData.onsiteSearch = { };
+      	if (typeof digitalData.onsiteSearch.onsiteSearchInfo == "undefined") digitalData.onsiteSearch.onsiteSearchInfo = { };
+				digitalData.onsiteSearch.onsiteSearchInfo.onsiteSearchAutocompleteLOV = json["onsiteSearchAutocompleteLOV"];
+      	break;
+      case "eventLabel":
+        if (typeof digitalData.event == "undefined") digitalData.event = [];
+        var hasSearchType = false;
+        for (var i in digitalData.event) {
+          if (digitalData.event[i].eventInfo.eventName === "searchType") {
+          	digitalData.event[i].eventInfo.eventLabel = json["eventLabel"];
+            hasSearchType = true;
+            break;
+          }
+        }
+        if (!hasSearchType) {
+        	var tmp = {"eventInfo":{"eventName":"searchType","eventLabel":json["eventLabel"]}}
+        	digitalData.event.push(tmp);
+        }
+        break;
+      default:
+        console.error("Unknown analytics parameter: " + prop);
+    }
+  }
+  _satellite.track("captureSearchSubmit");
+}
+
+NIAnalytics.captureSearchInstead = function(json) {
+  for (var prop in json) {
+    switch(prop) {
+      case "onsiteSearchSearchInsteadFor": 
+    		if (typeof digitalData.onsiteSearch == "undefined") digitalData.onsiteSearch = { };
+      	if (typeof digitalData.onsiteSearch.onsiteSearchInfo == "undefined") digitalData.onsiteSearch.onsiteSearchInfo = { };
+				digitalData.onsiteSearch.onsiteSearchInfo.onsiteSearchSearchInsteadFor = json["onsiteSearchSearchInsteadFor"];
+      	break;
+      case "onsiteSearchDym": 
+    		if (typeof digitalData.onsiteSearch == "undefined") digitalData.onsiteSearch = { };
+      	if (typeof digitalData.onsiteSearch.onsiteSearchInfo == "undefined") digitalData.onsiteSearch.onsiteSearchInfo = { };
+				digitalData.onsiteSearch.onsiteSearchInfo.onsiteSearchDym = json["onsiteSearchDym"];
+      	break;
+      default:
+        console.error("Unknown analytics parameter: " + prop);
+    }
+  }
+  _satellite.track("captureSearchInstead");
+}
+
+NIAnalytics.captureSearchFilter = function(json) {
+  for (var prop in json) {
+    switch(prop) {
+      case "onsiteSearchScenario": 
+    		if (typeof digitalData.onsiteSearch == "undefined") digitalData.onsiteSearch = { };
+      	if (typeof digitalData.onsiteSearch.onsiteSearchInfo == "undefined") digitalData.onsiteSearch.onsiteSearchInfo = { };
+				digitalData.onsiteSearch.onsiteSearchInfo.onsiteSearchScenario = json["onsiteSearchScenario"];
+        NIAnalytics.captureSearchFilterParam = "onsiteSearchScenario";
+      	break;
+      case "onsiteSearchSecondaryFilter": 
+    		if (typeof digitalData.onsiteSearch == "undefined") digitalData.onsiteSearch = { };
+      	if (typeof digitalData.onsiteSearch.onsiteSearchInfo == "undefined") digitalData.onsiteSearch.onsiteSearchInfo = { };
+				digitalData.onsiteSearch.onsiteSearchInfo.onsiteSearchSecondaryFilter = json["onsiteSearchSecondaryFilter"];
+        NIAnalytics.captureSearchFilterParam = "onsiteSearchSecondaryFilter";
+      	break;
+      default:
+        console.error("Unknown analytics parameter: " + prop);
+    }
+  }
+  _satellite.track("captureSearchFilter");
+}
+
+
+// Product Detail Pages
+NIAnalytics.captureProductFilter = function(json) {
+  for (var prop in json) {
+    switch(prop) {
+      case "filterNav":
+    		if (typeof digitalData.page == "undefined") digitalData.page = {};
+      	if (typeof digitalData.page.attributes == "undefined") digitalData.page.attributes = {};
+				digitalData.page.attributes.filterNav = json["filterNav"];
+      	break;
+      case "filterFacet":
+    		if (typeof digitalData.page == "undefined") digitalData.page = {};
+      	if (typeof digitalData.page.attributes == "undefined") digitalData.page.attributes = {};
+				digitalData.page.attributes.filterFacet = json["filterFacet"];
+      	break;
+      default:
+        console.error("Unknown analytics parameter: " + prop);
+    }
+  }
+  _satellite.track("captureProductFilter");
+}
+
+// Product Detail Pages
+NIAnalytics.captureProductDetail = function(json) {
+  s.clearVars();
+  for (var prop in json) {
+    switch(prop) {
+      case "partNumber":
+				digitalData.product[0].productInfo.partNumber = json["partNumber"];
+      	break;
+      default:
+        console.error("Unknown analytics parameter: " + prop);
+    }
+  }
+  _satellite.track("captureProductDetail");
+}
+
+/* Assessment */
+if (window.addEventListener) {
+	window.addEventListener("beforeunload", function (){
+    if (_satellite.getVar("ASSESSMENT_QUESTIONID:EV:DL") != ""){
+      _satellite.track("captureOutcomeFallOff");
+    }
+	});
+} else {
+	window.attachEvent("beforeunload", function (){
+    if (_satellite.getVar("ASSESSMENT_QUESTIONID:EV:DL") != ""){
+      _satellite.track("captureOutcomeFallOff");
+    }
+	});
+}
+
+NIAnalytics.captureOutcome = function(json) {
+  for (var prop in json) {
+    switch(prop) {
+      case "eventName": 
+        switch(json["eventAction"]){
+          case "complete":
+            var event = NIAnalytics.getEventByName(json["eventName"]);
+            if (event) {
+            	event.eventAction = json["eventAction"];
+            	if (json["outcomeLabel"]) event.outcomeLabel = json["outcomeLabel"];
+            } else {
+              if (typeof digitalData.event == "undefined") digitalData.event = [];
+              var tmp = {"eventInfo":""};
+              tmp.eventInfo = event = json;
+  						digitalData.event.push(tmp);
+            }
+            NIAnalytics.eventName = event.eventName;
+ 						_satellite.track("captureOutcomeComplete");
+            if (event.eventName === "assessment") event["questionID"] = "";
+          	break;
+          case "start":
+            if (typeof digitalData.event == "undefined") digitalData.event = [];
+  					var tmp = {"eventInfo":""};
+            tmp.eventInfo = json;
+  					digitalData.event.push(tmp);
+            NIAnalytics.eventIndex = digitalData.event.length - 1;
+  					_satellite.track("captureOutcomeStart");
+          	break;
+          default:
+        		console.error("Unknown value in eventAction: " + json["eventAction"]);
+        }
+        break;
+      case "assessmentLabel": break;
+      case "eventAction": break;
+      case "outcomeLabel": break;
+      case "eventLabel": break;
+      default: console.error("Unknown analytics parameter: " + prop);
+    }
+  }
+}
+
+NIAnalytics.captureAssessmentQuestion = function(questionID) {
+	var assess = NIAnalytics.getEventByName("assessment");
+  if (assess.questionID != undefined) assess.questionID = assess.questionID + "," + questionID;
+  else assess.questionID = questionID;
+  if (questionID == undefined) {
+    console.error("The parameter: questionID is undefined!");
+  }
+}
+
+NIAnalytics.captureResultClick = function(json) {
+  for (var prop in json) {
+    switch(prop) {
+      case "onsiteSearchClickedRank":  
+        if (typeof digitalData.onsiteSearch == "undefined") digitalData.onsiteSearch = { };
+      	if (typeof digitalData.onsiteSearch.onsiteSearchInfo == "undefined") digitalData.onsiteSearch.onsiteSearchInfo = { };
+		digitalData.onsiteSearch.onsiteSearchInfo.onsiteSearchClickedRank = json["onsiteSearchClickedRank"];
+        break;
+      case "onsiteSearchClickTitle":
+        if (typeof digitalData.onsiteSearch == "undefined") digitalData.onsiteSearch = { };
+      	if (typeof digitalData.onsiteSearch.onsiteSearchInfo == "undefined") digitalData.onsiteSearch.onsiteSearchInfo = { };
+		digitalData.onsiteSearch.onsiteSearchInfo.onsiteSearchClickTitle = json["onsiteSearchClickTitle"];
+        break;
+    	case "clickTitleUrl":
+    		if (typeof digitalData.onsiteSearch == "undefined") digitalData.onsiteSearch = { };
+      	if (typeof digitalData.onsiteSearch.onsiteSearchInfo == "undefined") digitalData.onsiteSearch.onsiteSearchInfo = { };
+    digitalData.onsiteSearch.onsiteSearchInfo.clickTitleUrl = json["clickTitleUrl"];
+    		break;
+      default:
+        console.error("Unknown analytics parameter: " + prop);
+    }
+  }
+  _satellite.track("captureResultClick");
+}
+
+NIAnalytics.captureRating = function(json) {
+  var tmp = {"eventInfo" : {}};
+  for (var prop in json) {
+    switch(prop) {
+      case "eventName": 
+        tmp.eventInfo[prop] = json[prop];
+        break;
+      case "eventLabel": 
+        tmp.eventInfo[prop] = json[prop];
+        break;
+      default:
+        console.error("Unknown analytics parameter: " + prop);
+    }
+  }
+  if (typeof digitalData.event == "undefined") {digitalData.event = [];}
+  digitalData.event.push(tmp);
+  NIAnalytics.eventIndex = digitalData.event.length - 1;
+  _satellite.track("captureRating");
+}
+
+NIAnalytics.captureFilter = function(json) {
+  for (var prop in json) {
+    switch(prop) {
+      case "filterPair":
+        if (typeof digitalData.page == "undefined") digitalData.page = { };
+        if (typeof digitalData.page.attributes == "undefined") digitalData.page.attributes = { };
+		    digitalData.page.attributes.filterPair = json["filterPair"];
+        break;
+      default:
+        console.error("Unknown analytics parameter: " + prop);
+    }
+  }
+  _satellite.track("captureFilter");
+}
+
+NIAnalytics.captureDownload = function(json) {
+	var tmp = {"eventInfo" : { "eventName" : "downloadgb" } };
+	for (var prop in json) {
+    switch(prop) {
+      case "eventLabel": 
+        tmp.eventInfo[prop] = json[prop];
+        break;
+      case "gbRoot": 
+        tmp.eventInfo[prop] = json[prop];
+        break;
+      case "email": 
+        tmp.eventInfo["eventDetail"] = json[prop];
+            break;
+      case "downloadProduct":
+        tmp.eventInfo[prop] = json[prop];      
+            break;        
+      default:
+        console.error("Unknown analytics parameter: " + prop);
+    }
+  }
+  if (typeof digitalData.event == "undefined") {digitalData.event = [];}
+  digitalData.event.push(tmp);
+	_satellite.track("captureDownload")
+  
+  function checkVariable(){
+     if ( NIAnalytics.transactionID == undefined ){
+       window.setTimeout(function(){ checkVariable(); },100);
+     }
+  }
+	checkVariable();
+  return NIAnalytics.transactionID;
+}
+
+NIAnalytics.captureTargetEvent = function(json) {
+  var tmp = {"eventInfo" : {}};
+  tmp.eventInfo["eventName"] = "TargetEvent";
+  for (var prop in json) {
+    switch(prop) {
+      case "eventLabel": 
+        tmp.eventInfo[prop] = json[prop];
+        break;
+      default:
+        console.error("Unknown analytics parameter: " + prop);
+    }
+  }
+  if (typeof digitalData.event == "undefined") {digitalData.event = [];}
+  digitalData.event.push(tmp);
+  NIAnalytics.eventIndex = digitalData.event.length - 1;
+  _satellite.track("captureTargetEvent");
+}
+
+NIAnalytics.captureMedia = function(json) {
+  var e = {"eventInfo" : {}};
+  for (var prop in json) {
+    switch(prop) {
+      case "eventName":
+      case "eventAction":
+      	e.eventInfo[prop] = json[prop];
+        break;
+      case "mediaName": 
+      case "mediaLength":
+      case "mediaPlayerName":
+        if (!e.eventInfo.attributes) e.eventInfo.attributes = {};
+        e.eventInfo.attributes[prop] = json[prop];
+        break;
+      default:
+        console.error("Unknown analytics parameter: " + prop);
+    }
+  }
+  if (typeof digitalData.event == "undefined") {digitalData.event = [];}
+  digitalData.event.push(e);
+  var mediaName = e.eventInfo.attributes.mediaName + ":" + _satellite.getVar("DETAILED_PAGENAME").split(":").join("_"); 
+  if (e.eventInfo.eventAction == "start") {
+    s.Media.open(mediaName, e.eventInfo.attributes.mediaLength, e.eventInfo.attributes.mediaPlayerName);
+		s.events = null;
+    s.pageName = _satellite.getVar("PAGE_NAME") + ":" +  e.eventInfo.attributes.mediaName;
+    s.eVar1 = s.pageName;
+    s.prop30 = _satellite.getVar("GENERIC_PAGENAME") + ":" + e.eventInfo.attributes.mediaName;
+    s.contextData.complete = "";
+  	s.contextData.start = e.eventInfo.eventName;
+		s.Media.track(mediaName);
+  } else if (e.eventInfo.eventAction == "complete") {
+    s.Media.stop(mediaName, e.eventInfo.attributes.mediaLength);
+  	s.Media.close(mediaName);
+  	s.events = "event16";
+    s.pageName = _satellite.getVar("PAGE_NAME") + ":" +  e.eventInfo.attributes.mediaName;
+    s.eVar1 = s.pageName;
+    s.prop30 = _satellite.getVar("GENERIC_PAGENAME") + ":" + e.eventInfo.attributes.mediaName;
+  	s.contextData.start = "";
+  	s.contextData.complete = e.eventInfo.eventName;
+  	s.Media.track(mediaName);
+  }
+}
+

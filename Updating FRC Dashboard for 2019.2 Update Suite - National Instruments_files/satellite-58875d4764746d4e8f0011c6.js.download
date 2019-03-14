@@ -1,0 +1,6 @@
+globalLoaded = true;
+if(typeof(callbackVPL) != "undefined"){
+  if (callbackVPL) {
+  	NIAnalytics.captureVirtualPageLoad(callbackJson);
+	}
+}

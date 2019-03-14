@@ -1,0 +1,158 @@
+/*
+* --------------------------------------------------------------------------------------------------------------------------------------
+* Modification History:
+* Date              Author              Modifications
+* 16-APR-2018       Irene Zuniga        Creating file in order to remove inline styles.
+* --------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+form { margin-bottom: 0 }
+.blog-header { margin: 22px 0 0 0 }
+.blog-header .blog-description.lead { margin-bottom: 12px }
+.blog-header .blog-title { margin-bottom: 3px }
+/*--------------------------------------------------------------------------------------------------------------------------------------*/
+.blog-description { font-size: 19px }
+.blog-description .glyphicon-ok-circle { vertical-align: text-bottom }
+.blog-description .glyphicon-ok-circle, .blog-description .solutionVerified { color: #649524 }
+.blog-description .solutionVerified, .blog-description .solutionUnverified { text-transform: uppercase; font-weight: bold }
+.blog-description .solutionVerified, .blog-description .solutionUnverified, .blog-description .lastModifiedDate { font-size: 15px }
+.blog-description .fa-exclamation-circle { cursor: default; font-size: 20px; color: red }
+.blog-description .fa-exclamation-circle:hover { color: red }
+.blog-description .solutionUnverified { color: red }
+/*--------------------------------------------------------------------------------------------------------------------------------------*/
+.blog-icons { margin-bottom: 20px }
+.blog-icons ul.list-unstyled { display: inline-block }
+.blog-icons ul li { float: left; margin-right: 5px }
+.blog-icons ul li .icon .fa-envelope,
+.blog-icons ul li .icon .fa-print { background-color: #888; padding: 6px; font-size: 13px }
+.blog-icons ul li .icon .fa-envelope:hover,
+.blog-icons ul li .icon .fa-print:hover { background-color: #3498db; cursor: pointer }
+.blog-icons ul li .icon .fa-envelope,
+.blog-icons ul li .icon .fa-print,
+.blog-icons ul li .icon .fa-facebook,
+.blog-icons ul li .icon .fa-twitter,
+.blog-icons ul li .icon .fa-linkedin { width: 24px; height: 24px; color: white; text-align: center }
+.blog-icons ul li .icon .fa-facebook { background-color: rgb(49, 89, 145); padding: 5px 0px 0px 8px; font-size: 20px }
+.blog-icons ul li .icon .fa-twitter  { background-color: rgb(44, 167,209); padding: 4px 0px 0px 0px; font-size: 18px }
+.blog-icons ul li .icon .fa-linkedin { background-color: rgb(0, 102, 153); padding: 4px 0px 0px 0px; font-size: 18px }
+/*--------------------------------------------------------------------------------------------------------------------------------------*/       
+.blog-reported { margin-bottom: 24px }
+.blog-reported h2 { display: inline-block }
+.blog-reported .blog-reported-popover { width: 15px; height: 15px; display: inline-block; vertical-align: super }
+.blog-reported .blog-reported-popover .dot { background: #333; width: 12px; height: 12px; position: absolute; border-radius: 10px; z-index: -1; margin-left: 2px; margin-top: 2px }
+.blog-reported .popover,
+.blog-reported .popover.fade.in { border: 0 }
+.blog-reported .popover-content { padding: 6px 36px 6px 6px; font-size: 12px }
+.blog-reported .popover.bottom > .arrow { border-width: 10px; top: -15px; border-bottom-color: #444 }
+.blog-reported .popover.bottom .popover-title .close { margin: 5px }
+/*--------------------------------------------------------------------------------------------------------------------------------------*/
+.blog-reported-data { margin-bottom: 24px }
+.blog-reported-data div ul { list-style-type: disc; padding-left: 18px }
+/*--------------------------------------------------------------------------------------------------------------------------------------*/
+.blog-post { margin-bottom: 30px }
+.blog-post h2 { margin-bottom: 24px }
+.blog-post img { margin-top: 12px; max-width: 100% }
+.blog-post a.ni-btn-primary { margin-top: 12px }
+.blog-post.attachment { margin-bottom: 0px }
+.blog-post.attachment .attachmentLink { float: left; margin-right: 20px; }
+.blog-post.attachment .attachmentLink a { text-decoration: none; }
+.blog-post.attachment .attachmentLink a svg{ margin-right: 2px; }
+.blog-post.attachment .attachmentLink a span{ display: inline-block; vertical-align: 5px; }                
+/*--------------------------------------------------------------------------------------------------------------------------------------*/
+.relatedArticles { margin: 50px 0 }
+.relatedArticles .row .col-xs-12 ul { padding-left: 18px; list-style-type: disc; color: #065fa3 }
+.relatedArticles .row .col-xs-12 ul li { margin-bottom: 12px }
+.relatedArticles .row .col-xs-12 .col-xs-12 { margin-left: -15px }
+/*--------------------------------------------------------------------------------------------------------------------------------------*/
+.divider { border-top: 1px solid #ccc }
+/*--------------------------------------------------------------------------------------------------------------------------------------*/
+.other-support-options-li {color: #333333}
+
+/*Breakpoints*/
+
+@media (min-width: 992px){
+.relatedArticles .row .col-xs-12 .col-xs-6 { margin-left: -15px }
+}
+@media (max-width: 991px){
+	.blog-reported-data .row .col-sm-6:nth-child(2n+1){ clear: left }
+	.blog-reported-data .row .col-sm-6 { margin-bottom: 24px }
+	.blog-reported-data { margin-bottom: 0 }
+
+	.relatedArticles .row .col-xs-12 .col-xs-6 { margin-left: -15px }
+}
+@media(max-width: 919px){
+	.blog-reported .popover.fade.bottom,
+	.blog-reported .popover.fade.bottom.in { left: 16px!important }
+	.blog-reported .popover.fade.bottom>.arrow,
+	.blog-reported .popover.fade.bottom.in>.arrow { left: 42.5%!important }
+	.blog-reported .popover.fade.bottom>.arrow,
+	.blog-reported .popover.fade.bottom.in>.arrow { top: -14px }
+
+	.relatedArticles .row .col-xs-12 .col-xs-6 { margin-left: -15px }
+}
+@media(max-width: 768px){
+	.relatedArticles .row .col-sm-12:first-child { margin-bottom: 30px }
+	.relatedArticles .col-xs-12.col-xs-12 h2 { margin-bottom: 14px }
+	.relatedArticles .col-xs-12.col-xs-12 p { margin-bottom: 2px }
+	.blog-reported .popover.fade.bottom,
+	.blog-reported .popover.fade.bottom.in { left: 16px!important }
+	.blog-reported .popover.fade.bottom>.arrow,
+	.blog-reported .popover.fade.bottom.in>.arrow { left: 43%!important }
+}
+@media(max-width: 767px){
+	.blog-reported .popover.fade.bottom,
+	.blog-reported .popover.fade.bottom.in { left: 16px!important }
+	.blog-reported .popover.fade.bottom>.arrow,
+	.blog-reported .popover.fade.bottom.in>.arrow { left: 35.5%!important }
+	.blog-reported .popover.bottom .popover-title .close { opacity: .2 }
+
+	.relatedArticles .row .col-xs-12 .col-xs-6 { margin-left: -15px }
+}
+@media(max-width: 320px){
+	.blog-post img { margin-top: 12px; width: 290px }
+	.modal:before { content: ''!important; height: 24%!important }
+	.helpfulModal .modal-content { width: 300px }
+}
+
+.kbFeedback { margin-top: 50px; margin-bottom: 50px }
+.kbFeedback .heading_4 { margin: 0 0 20px 0 } 
+.kbFeedback .kbFeedbackContent .iconBox { background-color: #f4f4f4; padding: 20px; cursor: pointer }
+.kbFeedback .kbFeedbackContent .iconBox .icon .fa { font-size: 42px; user-select: none }
+.kbFeedback .kbFeedbackContent .iconBox:hover { background-color: #e7e7e7 }
+.kbFeedback .kbFeedbackContent .iconBox:hover .icon .fa { color: #065fa3 }
+.kbFeedback .kbFeedbackContent .iconBox .paragraph { margin: 0 0 12px 0 }  
+.kbFeedback .kbFeedbackContent .iconBox.selected .icon .fa-thumbs-o-up:before { content: "\f164" }
+.kbFeedback .kbFeedbackContent .iconBox.selected .icon .fa-thumbs-o-down:before { content: "\f165" }
+
+/*--------------------------------------------------------------------------------------------------------------------------------------*/
+.firstTimeVote {padding-bottom: 50px; text-align: center;}
+.firstTimeVote > div {display: inline-block;}
+.firstTimeVote > div > img {padding-right: 15px;}
+.firstTimeVote > div > * {display: inline-block; vertical-align:middle;}
+
+.changeVoteText {padding-bottom: 50px; text-align: center;}
+.changeVoteText > div {display: inline-block;}
+.changeVoteText > div > img {padding-right: 15px;}
+.changeVoteText > div > * {display: inline-block; vertical-align:middle;}
+
+
+@media(max-width: 320px){
+	.helpfulModal .modal-content { width: 250px; }
+	.helpfulModal .modal-content .fa-check-circle { left: 77px; }
+
+	.helpfulModal .modal-dialog.modal-sm {
+		width: 250px;
+		top: 80px;
+	}
+}
+
+
+/*Print.css*/
+@media print {
+	@page { size: auto; margin: 1mm }
+	#cookieLaw,
+	.blog-icons,
+	.kbFeedback,
+	.footer { display: none !important }
+	a[href]:after { content: none !important }
+}
